@@ -1,0 +1,68 @@
+export const PesticidesData = [
+  {
+    id: "001",
+    Name: "Glyphosite Herbicide combo",
+    Description:" 1 Litres pack of 2" ,
+    Price: "Rs 349",
+    Image: "./Product_images/ph1.png",
+    Warranty:"2 Months ",
+  },
+  {
+      id: "002",
+      Name: "Sempra Herbicide ",
+      Description:"weight 500 gm Halosulphuron Methyl 75 %" ,
+      Price: " Rs 560",
+      Image: "./Product_images/ph2.png",
+      Warranty:"1 year",
+    },
+    {
+      id: "003",
+      Name: "Ronfen Insecticide",
+      Description: " 1 Litre Pack highly toxic",
+      Price: "Rs 399",
+      Image: "./Product_images/ph3.png",
+      Warranty:"No warranty",
+    },
+    {
+      id: "004",
+      Name: "Glycocin",
+      Description: " Herbicide weight 5 Litres",
+      Price: "Rs 1299",
+      Image: "./Product_images/ph4.png",
+      Warranty:"1 year",
+    },
+    {
+      id: "005",
+      Name: "Kalichakra",
+      Description: " Biological Insecticide Pack of 3",
+      Price: "Rs 699",
+      Image: "./Product_images/ph5.png",
+      Warranty:"No warranty",
+    },
+    {
+      id: "006",
+      Name: "Phoskill and Solomon",
+      Description: "Insecticides 1 litres each",
+      Price: "Rs 499",
+      Image: "./Product_images/ph6.png",
+      Warranty:"No warranty",
+    },
+    {
+      id: "007",
+      Name:"Exponus",
+      Description: "Insecticide contains Brofanilide chemical",
+      Price: "Rs 387",
+      Image: "./Product_images/ph7.png",
+      Warranty:"No warranty",
+    },
+    {
+      id: "008",
+      Name: "Glybin",
+      Description: "Glyphosphate Herbicide contains 41 % concentration",
+      Price: "Rs 567",
+      Image: "./Product_images/ph8.png",
+      Warranty:"1 year ",
+    },
+  
+];
+
