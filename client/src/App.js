@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
 import ProductAd from './frontend/ProductAd';
@@ -60,7 +60,6 @@ const App = () => {
           <Route path="/singleproduct/:id" element={<SingleProduct />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/product" element={<Product/>} />
-          
         
           <Route path="/user/login" element={<UserLogin isloggedIn={isloggedIn} check={checkloggin}/>} />
           <Route path="/signup" element={<Signup />} />
