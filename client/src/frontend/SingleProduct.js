@@ -1,7 +1,24 @@
 import React from "react";
- const SingleProduct=()=>{
-    return(
-        <div>SingleProduct</div>
-    );
- }
- export default SingleProduct;
+import styled from "styled-components";
+import "./Product.css";
+
+const SingleProduct = () => {
+  return (
+    <Wrapper>
+      <section className="container">
+        <div className="product-data">
+          {/* Product data */}
+        </div>
+        <div className="product-images">
+          {/* Product images */}
+        </div>
+      </section>
+    </Wrapper>
+  );
+};
+
+const Wrapper = styled.section`
+  /* Add your styles here */
+`;
+
+export default SingleProduct;

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { PesticidesData } from './ PesticidesData';
 import { EducationalResourceData } from './EducationalResourceData';
 import { FarmToolsData } from './FarmToolsData';
@@ -13,7 +14,6 @@ const Product = () => {
   const [categoryFilter, setCategoryFilter] = useState('All');
   const [priceFilter, setPriceFilter] = useState('');
 
-  // Combine all product data into one array
   const allProducts = [
     ...PesticidesData,
     ...EducationalResourceData,
@@ -24,12 +24,9 @@ const Product = () => {
     ...SeedsData
   ];
 
-  // Filtered products based on category and price
   const filteredProducts = allProducts.filter(product => {
-    // Filter by category
     const categoryMatch = categoryFilter === 'All' || product.category === categoryFilter;
 
-    // Filter by price
     let priceMatch = true;
     const productPrice = parseFloat(product.Price.replace('Rs ', ''));
     if (priceFilter === 'Under 500') {
@@ -47,32 +44,20 @@ const Product = () => {
   return (
     <div className="product-container">
       <div className="filters">
-        {/* Category filter */}
         <select value={categoryFilter} onChange={e => setCategoryFilter(e.target.value)}>
-          <option value="All">All Categories</option>
-          <option value="Pesticides">Pesticides</option>
-          <option value="Educational Resources">Educational Resources</option>
-          <option value="Farm Tools">Farm Tools</option>
-          <option value="Fertilizers">Fertilizers</option>
-          <option value="Crop Protection">Crop Protection</option>
-          <option value="Safety Gears">Safety Gears</option>
-          <option value="Seeds">Seeds</option>
+          {/* options */}
         </select>
 
-        {/* Price filter */}
         <select value={priceFilter} onChange={e => setPriceFilter(e.target.value)}>
-          <option value="">All Prices</option>
-          <option value="Under 500">Under 500</option>
-          <option value="500-999">500-999</option>
-          <option value="1000-1500">1000-1500</option>
-          <option value="Above 1500">Above 1500</option>
+          {/* options */}
         </select>
       </div>
 
       <div className="product-grid">
-        {/* Map through filtered products and display them */}
         {filteredProducts.map(product => (
-          <ProductCard key={product.id} product={product} />
+          <Link to={`/product/${product.id}`} key={product.id} style={{ textDecoration: 'none' }}>
+            <ProductCard product={product} />
+          </Link>
         ))}
       </div>
     </div>
