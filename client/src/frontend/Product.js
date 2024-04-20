@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { PesticidesData } from './ PesticidesData';
 import { EducationalResourceData } from './EducationalResourceData';
@@ -12,49 +12,71 @@ import './Product.css';
 
 const Product = () => {
   const [categoryFilter, setCategoryFilter] = useState('All');
-  const [priceFilter, setPriceFilter] = useState('');
+  const [products, setProducts] = useState([]); // State to store filtered products
 
-  const allProducts = [
-    ...PesticidesData,
-    ...EducationalResourceData,
-    ...FarmToolsData,
-    ...FertilizersData,
-    ...CropProtectionData,
-    ...SafetyGearsData,
-    ...SeedsData
-  ];
+  useEffect(() => {
+    const chooseProducts = () => {
+      switch (categoryFilter) {
+        case 'All':
+          setProducts([...PesticidesData, ...EducationalResourceData, ...FarmToolsData, ...FertilizersData, ...CropProtectionData, ...SafetyGearsData, ...SeedsData]);
+          break;
+        case 'Pesticides':
+          setProducts(PesticidesData);
+          break;
+        case 'Educational Resources':
+          setProducts(EducationalResourceData);
+          break;
 
-  const filteredProducts = allProducts.filter(product => {
-    const categoryMatch = categoryFilter === 'All' || product.category === categoryFilter;
+        case 'Seeds':
+            setProducts(SeedsData);
+            break;
 
-    let priceMatch = true;
-    const productPrice = parseFloat(product.Price.replace('Rs ', ''));
-    if (priceFilter === 'Under 500') {
-      priceMatch = productPrice < 500;
-    } else if (priceFilter === '500-999') {
-      priceMatch = productPrice >= 500 && productPrice < 1000;
-    } else if (priceFilter === '1000-1500') {
-      priceMatch = productPrice >= 1000 && productPrice < 1500;
-    } else if (priceFilter === 'Above 1500') {
-      priceMatch = productPrice >= 1500;
-    }
-    return categoryMatch && priceMatch;
-  });
+        case 'Farm Tools':
+            setProducts(FarmToolsData);
+            break;
+
+        case 'Safety Gears':
+            setProducts(SafetyGearsData);
+            break;
+
+        case 'Fertilizers':
+            setProducts(FertilizersData);
+            break;
+
+        case 'Crop Protection':
+            setProducts(CropProtectionData);
+            break;
+
+        default:
+          setProducts([]); // Set empty array for invalid categories
+      }
+    };
+
+    chooseProducts();
+  }, [categoryFilter]);
+
+  const handleCategoryChange = (event) => {
+    setCategoryFilter(event.target.value);
+  };
 
   return (
     <div className="product-container">
       <div className="filters">
-        <select value={categoryFilter} onChange={e => setCategoryFilter(e.target.value)}>
-          {/* options */}
-        </select>
-
-        <select value={priceFilter} onChange={e => setPriceFilter(e.target.value)}>
-          {/* options */}
+        {/* Category filter */}
+        <select value={categoryFilter} onChange={handleCategoryChange}>
+          <option value="All">All Categories</option>
+          <option value="Pesticides">Pesticides</option>
+          <option value="Educational Resources">Educational Resources</option>
+          <option value="Farm Tools">Farm Tools</option>
+          <option value="Seeds">Seeds</option>
+          <option value="Safety Gears">Safety Gears</option>
+          <option value="Fertilizers">Fertilizers</option>
+          <option value="Crop Protection">Crop Protection</option>
         </select>
       </div>
 
       <div className="product-grid">
-        {filteredProducts.map(product => (
+        {products.map((product) => (
           <Link to={`/product/${product.id}`} key={product.id} style={{ textDecoration: 'none' }}>
             <ProductCard product={product} />
           </Link>
