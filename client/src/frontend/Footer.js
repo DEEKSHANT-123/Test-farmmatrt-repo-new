@@ -24,23 +24,31 @@ const Footer=()=>{
             </div>
 
             <div className="footer-social">
-              <h3>Follow Us</h3>
-              <div className="footer-social--icons">
-                <div>
-                <FaFacebook className="icons" />
-                </div>
-                <div>
-                  <FaInstagram className="icons" />
-                </div>
-                <div>
-                  <a
-                    href=""
-                    target="_blank">
-                    <FaYoutube className="icons" />
-                  </a>
-                </div>
-              </div>
-            </div>
+      <h3>Follow Us</h3>
+      <div className="footer-social--icons">
+        <div>
+          <a href="https://www.facebook.com/officialpage" target="_blank" rel="noopener noreferrer">
+            <FaFacebook className="icons" />
+          </a>
+        </div>
+        <div>
+          <a href="https://www.instagram.com/officialpage" target="_blank" rel="noopener noreferrer">
+            <FaInstagram className="icons" />
+          </a>
+        </div>
+        <div>
+          <a href="https://www.youtube.com/channel/officialpage" target="_blank" rel="noopener noreferrer">
+            <FaYoutube className="icons" />
+          </a>
+        </div>
+        <div>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=farmartis062@gmail.com">
+            <span className="icons">✉</span>
+          </a>
+          https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=new
+        </div>
+      </div>
+    </div>
             <div className="footer-contact">
               <h3>Call Us</h3>
               <a href="tel:8827132824"> <h3>+91 8827132824</h3></a>
