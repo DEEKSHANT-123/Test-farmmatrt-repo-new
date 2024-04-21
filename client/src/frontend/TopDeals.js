@@ -6,43 +6,49 @@ import "slick-carousel/slick/slick-theme.css";
 const TopDeals = () => {
   const dealsData = [
     {
-    id: 1,
-    image: "https://5.imimg.com/data5/SELLER/Default/2022/7/UY/XH/VY/96555944/fertilizer-packaging-bags-500x500.jpg",
-    offer: "25% Off",
-    link: "/deal1",
+      id: "001",
+      img: "./Product_images/cp4.png",
+      offer: "25% Off",
+      link: "/product",
     },
     {
-    id: 2,
-    image: "https://www.justgotochef.com/img/1545640883-ACCEPT-ORGANIC%20Premium%20Basmati%20Rice%20(Long%20Grain,%20Unpolished)-Front.jpg",
-    offer: "Buy 1 Get 1 Free",
-    link: "/deal1",
+      id: "002",
+      img: "./Product_images/f2.png",
+      offer: "20% Off",
+      link: "/product",
     },
     {
-    id: 3,
-    image: "https://5.imimg.com/data5/SELLER/Default/2022/5/SL/FN/SL/310912/packed-whole-onion-seed-500x500.png",
-    offer: "25% Off",
-    link: "/deal1",
+      id: "003",
+      img: "./Product_images/fc7.png",
+      offer: "35% Off",
+      link: "/product",
     },
     {
-    id: 4,
-    image: "https://www.fieldking.com/images/tillage/plough/lg/mounted-disc-plough.png",
-    offer: "10% Off",
-    link: "/deal1",
+      id: "004",
+      img: "./Product_images/ph4.png",
+      offer: "2% Off",
+      link: "/product",
     },
     {
-    id: 5,
-    image: "https://oxfarm.co.ke/wp-content/uploads/2018/07/nursery-shade-net.jpg",
-    offer: "25% Off",
-    link: "/deal1",
+      id: "005",
+      img: "./Product_images/ft5.png",
+      offer: "45% Off",
+      link: "/product",
     },
     {
-    id: 6,
-    image: "https://m.media-amazon.com/images/I/81UI54J9btL._AC_UF1000,1000_QL80_.jpg",
-    offer: "Buy 1 Get 2 Free",
-    link: "/deal1",
+      id: "006",
+      img: "./Product_images/ph6.png",
+      offer: "25% Off",
+      link: "/product",
     },
-    ];
-    
+    {
+      id: "007",
+      img: "./Product_images/se5.png",
+      offer: "4% Off",
+      link: "/product",
+    },
+    // Add other deal items here
+  ];
 
   const settings = {
     dots: false,
@@ -77,7 +83,7 @@ const TopDeals = () => {
         {dealsData.map((deal) => (
           <div key={deal.id} style={styles.dealItem}>
             <a href={deal.link}>
-              <img src={deal.image} alt={`Product ${deal.id}`} style={styles.image} />
+              <img src={deal.img} alt={`Product ${deal.id}`} style={styles.image} />
             </a>
             <div style={styles.offerContainer}>
               <p style={styles.offerText}>{deal.offer}</p>
@@ -114,7 +120,7 @@ const styles = {
   },
   image: {
     width: "300px",
-    height: "250px",
+    height: "400px",
     borderRadius: "8px",
     marginBottom: "12px",
     objectFit: "cover",
@@ -127,7 +133,7 @@ const styles = {
   },
   offerText: {
     fontSize: "14px",
-    color: "#007bff",
+    color: "red",
     textAlign: "center",
   },
 };
