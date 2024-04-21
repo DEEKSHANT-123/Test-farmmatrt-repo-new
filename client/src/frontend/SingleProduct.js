@@ -33,7 +33,7 @@ const SingleProduct = () => {
           <img src={product.Image} alt={product.Name} />
           <h2>{product.Name}</h2>
           <p>{product.Description}</p>
-          <p>Price: {product.Price}</p>
+          <p>Rs: {product.Price}</p>
         </>
       ) : (
         <p>Product not found.</p>

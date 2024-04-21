@@ -12,14 +12,25 @@ import './Product.css';
 
 const Product = () => {
   const [categoryFilter, setCategoryFilter] = useState('All');
-  const [priceFilter, setPriceFilter] = useState('');
+  const [priceFilter, setPriceFilter] = useState('All');
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    const filterProducts = () => {
+    const chooseProducts = () => {
       let filteredProducts = [];
 
       switch (categoryFilter) {
+        case 'All':
+          filteredProducts = [
+            ...PesticidesData,
+            ...EducationalResourceData,
+            ...FarmToolsData,
+            ...FertilizersData,
+            ...CropProtectionData,
+            ...SafetyGearsData,
+            ...SeedsData
+          ];
+          break;
         case 'Pesticides':
           filteredProducts = PesticidesData;
           break;
@@ -29,62 +40,35 @@ const Product = () => {
         case 'Farm Tools':
           filteredProducts = FarmToolsData;
           break;
+        case 'Seeds':
+          filteredProducts = SeedsData;
+          break;
+        case 'Safety Gears':
+          filteredProducts = SafetyGearsData;
+          break;
         case 'Fertilizers':
           filteredProducts = FertilizersData;
           break;
         case 'Crop Protection':
           filteredProducts = CropProtectionData;
           break;
-        case 'Safety Gears':
-          filteredProducts = SafetyGearsData;
-          break;
-        case 'Seeds':
-          filteredProducts = SeedsData;
-          break;
         default:
-          filteredProducts = [
-            ...PesticidesData,
-            ...EducationalResourceData,
-            ...FarmToolsData,
-            ...FertilizersData,
-            ...CropProtectionData,
-            ...SafetyGearsData,
-            ...SeedsData,
-          ];
+          break;
       }
 
-      if (priceFilter) {
-        switch (priceFilter) {
-          case '0-249':
-            filteredProducts = filteredProducts.filter(product => parseInt(product.Price) <= 249);
-            break;
-          case '250-499':
-            filteredProducts = filteredProducts.filter(product => parseInt(product.Price) >= 250 && parseInt(product.Price) <= 499);
-            break;
-          case '500-749':
-            filteredProducts = filteredProducts.filter(product => parseInt(product.Price) >= 500 && parseInt(product.Price) <= 749);
-            break;
-          case '750-999':
-            filteredProducts = filteredProducts.filter(product => parseInt(product.Price) >= 750 && parseInt(product.Price) <= 999);
-            break;
-          case '1000-1249':
-            filteredProducts = filteredProducts.filter(product => parseInt(product.Price) >= 1000 && parseInt(product.Price) <= 1249);
-            break;
-          case '1250-1500':
-            filteredProducts = filteredProducts.filter(product => parseInt(product.Price) >= 1250 && parseInt(product.Price) <= 1500);
-            break;
-          case 'Above 1500':
-            filteredProducts = filteredProducts.filter(product => parseInt(product.Price) > 1500);
-            break;
-          default:
-            break;
-        }
+      // Filter by price
+      if (priceFilter !== 'All') {
+        const [minPrice, maxPrice] = priceFilter.split('-').map(val => parseInt(val.trim()));
+        filteredProducts = filteredProducts.filter(product => {
+          const Rs = parseInt(product.Rs);
+          return Rs >= minPrice && Rs <= maxPrice;
+        });
       }
 
       setProducts(filteredProducts);
     };
 
-    filterProducts();
+    chooseProducts();
   }, [categoryFilter, priceFilter]);
 
   const handleCategoryChange = event => {
@@ -98,26 +82,28 @@ const Product = () => {
   return (
     <div className="product-container">
       <div className="filters">
+        {/* Category filter */}
         <select value={categoryFilter} onChange={handleCategoryChange}>
           <option value="All">All Categories</option>
           <option value="Pesticides">Pesticides</option>
           <option value="Educational Resources">Educational Resources</option>
           <option value="Farm Tools">Farm Tools</option>
+          <option value="Seeds">Seeds</option>
+          <option value="Safety Gears">Safety Gears</option>
           <option value="Fertilizers">Fertilizers</option>
           <option value="Crop Protection">Crop Protection</option>
-          <option value="Safety Gears">Safety Gears</option>
-          <option value="Seeds">Seeds</option>
         </select>
 
+        {/* Price filter */}
         <select value={priceFilter} onChange={handlePriceChange}>
-          <option value="">All Prices</option>
-          <option value="0-249">₹ 0 - ₹ 249</option>
-          <option value="250-499">₹ 250 - ₹ 499</option>
-          <option value="500-749">₹ 500 - ₹ 749</option>
-          <option value="750-999">₹ 750 - ₹ 999</option>
-          <option value="1000-1249">₹ 1000 - ₹ 1249</option>
-          <option value="1250-1500">₹ 1250 - ₹ 1500</option>
-          <option value="Above 1500">Above ₹ 1500</option>
+          <option value="All">All Prices</option>
+          <option value="0-249">Below Rs 250</option>
+          <option value="250-499">Rs 250 - Rs 499</option>
+          <option value="500-749">Rs 500 - Rs 749</option>
+          <option value="750-999">Rs 750 - Rs 999</option>
+          <option value="1000-1249">Rs 1000 - Rs 1249</option>
+          <option value="1250-1500">Rs 1250 - Rs 1500</option>
+          <option value="1500-Above">Rs 1500 and above</option>
         </select>
       </div>
 
