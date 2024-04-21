@@ -75,11 +75,35 @@ const Payment = () => {
   };
 
   return (
-    <div className='product'>
-      <h1>Razorpay Payment Gateway</h1>
-      <button className='button' onClick={paymentHandler}>Pay Now</button>
+    <div style={containerStyle} className='payment-card'>
+      <h3>Razorpay Payment Gateway</h3>
+      <button style={buttonStyle} className='payment-button' onClick={paymentHandler}>Pay Now</button>
     </div>
   );
 };
 
 export default Payment;
+
+// CSS styles
+const containerStyle = {
+  border: '1px solid #ccc',
+  borderRadius: '8px',
+  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+  padding: '30px',
+  backgroundColor: '#191970',
+  textAlign: 'center',
+  maxWidth: '400px',
+  margin: '0 auto',
+  color:'white',
+};
+
+const buttonStyle = {
+  backgroundColor: 'tomato',
+  color: 'white',
+  border: 'none',
+  padding: '10px 20px',
+  borderRadius: '4px',
+  cursor: 'pointer',
+  fontSize: '16px',
+  marginTop: '20px',
+};
