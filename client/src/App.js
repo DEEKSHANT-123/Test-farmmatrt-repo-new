@@ -7,7 +7,7 @@ import Home from './frontend/Home';
 import About from './frontend/About';
 import Contact from './frontend/Contact';
 import SingleProduct from './frontend/SingleProduct';
-import Cart from './frontend/Cart';
+import Payment from './frontend/Payment';
 import ErrorPage from './frontend/ErrorPage';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from './frontend/GlobalStyle';
@@ -57,7 +57,7 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/productad" element={<ProductAd />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/cart" element={<Cart />} />
+          <Route path="/payment" element={<Payment />} />
           <Route path="/product" element={<Product />} />
           <Route path="/product/:id" element={<SingleProduct />} />
         

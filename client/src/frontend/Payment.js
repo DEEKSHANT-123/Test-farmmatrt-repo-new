@@ -1,6 +1,6 @@
 import React from "react";
 
-const Cart = () => {
+const Payment = () => {
   const paymentHandler = async (event) => {
     const amount = 500;
     const currency = 'INR';
@@ -82,4 +82,4 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+export default Payment;
