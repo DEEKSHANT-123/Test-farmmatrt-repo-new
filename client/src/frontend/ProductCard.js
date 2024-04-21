@@ -5,10 +5,10 @@ const ProductCard = ({ product }) => {
     <div className="product-card">
       <img src={product.Image} alt={product.Name} />
       <div className="product-details">
-        <h2>{product.Name}</h2>
-        <p>{product.Description}</p>
+        <h3>{product.Name}</h3>
+        {/* <p>{product.Description}</p> */}
         <p>Price: {product.Price}</p>
-        <p>Warranty: {product.Warranty}</p>
+        {/* <p>Warranty: {product.Warranty}</p> */}
       </div>
     </div>
   );

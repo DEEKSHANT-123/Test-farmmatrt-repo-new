@@ -137,7 +137,7 @@ to="/cart"
 >
 {/* <FaCartShopping /> */}
 <FaShoppingCart />
-<span>10</span>
+<span>0</span>
 </NavLink>
 </li>
 </ul>

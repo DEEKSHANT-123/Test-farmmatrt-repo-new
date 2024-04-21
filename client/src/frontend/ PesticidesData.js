@@ -1,14 +1,14 @@
 export const PesticidesData = [
   {
-    id: "001",
+    id: 1,
     Name: "Glyphosite Herbicide combo",
     Description:" 1 Litres pack of 2" ,
-    Price: "Rs 349",
+    Price: 349,
     Image: "./Product_images/ph1.png",
     Warranty:"2 Months ",
   },
   {
-      id: "002",
+      id: 2,
       Name: "Sempra Herbicide ",
       Description:"weight 500 gm Halosulphuron Methyl 75 %" ,
       Price: " Rs 560",
@@ -16,7 +16,7 @@ export const PesticidesData = [
       Warranty:"1 year",
     },
     {
-      id: "003",
+      id: 3,
       Name: "Ronfen Insecticide",
       Description: " 1 Litre Pack highly toxic",
       Price: "Rs 399",
@@ -24,7 +24,7 @@ export const PesticidesData = [
       Warranty:"No warranty",
     },
     {
-      id: "004",
+      id: 4,
       Name: "Glycocin",
       Description: " Herbicide weight 5 Litres",
       Price: "Rs 1299",
@@ -32,7 +32,7 @@ export const PesticidesData = [
       Warranty:"1 year",
     },
     {
-      id: "005",
+      id: 5,
       Name: "Kalichakra",
       Description: " Biological Insecticide Pack of 3",
       Price: "Rs 699",
@@ -40,7 +40,7 @@ export const PesticidesData = [
       Warranty:"No warranty",
     },
     {
-      id: "006",
+      id: 6,
       Name: "Phoskill and Solomon",
       Description: "Insecticides 1 litres each",
       Price: "Rs 499",
@@ -48,7 +48,7 @@ export const PesticidesData = [
       Warranty:"No warranty",
     },
     {
-      id: "007",
+      id: 7,
       Name:"Exponus",
       Description: "Insecticide contains Brofanilide chemical",
       Price: "Rs 387",
@@ -56,7 +56,7 @@ export const PesticidesData = [
       Warranty:"No warranty",
     },
     {
-      id: "008",
+      id: 8,
       Name: "Glybin",
       Description: "Glyphosphate Herbicide contains 41 % concentration",
       Price: "Rs 567",
