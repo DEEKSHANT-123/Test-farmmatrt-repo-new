@@ -6,9 +6,9 @@ const ProductCard = ({ product }) => {
       <img src={product.Image} alt={product.Name} />
       <div className="product-details">
         <h3>{product.Name}</h3>
-        {/* <p>{product.Description}</p> */}
+        <p>{product.Description}</p>
         <p>Rs: {product.Rs}</p>
-        {/* <p>Warranty: {product.Warranty}</p> */}
+        <p>Warranty: {product.Warranty}</p>
       </div>
     </div>
   );
