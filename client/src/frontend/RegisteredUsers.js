@@ -9,7 +9,7 @@ const RegisteredUsers = () => {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get("http://localhost:3001/api/registered-users");
+      const response = await axios.get("http://localhost:5000/api/registered-users");
       setUsers(response.data);
     } catch (error) {
       console.error("Error fetching registered users:", error);
@@ -28,7 +28,7 @@ const RegisteredUsers = () => {
 
   const handleUpdate = async (userId) => {
     try {
-      await axios.put(`http://localhost:3001/api/registered-users/${userId}`, {
+      await axios.put(`http://localhost:5000/api/registered-users/${userId}`, {
         username: editedUsername,
         email: editedEmail,
       });
@@ -44,7 +44,7 @@ const RegisteredUsers = () => {
 
   const handleDelete = async (userId) => {
     try {
-      await axios.delete(`http://localhost:3001/api/registered-users/${userId}`);
+      await axios.delete(`http://localhost:5000/api/registered-users/${userId}`);
       // After successful delete, fetch updated users
       await fetchUsers(); // Refetch updated data
     } catch (error) {

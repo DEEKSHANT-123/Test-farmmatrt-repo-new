@@ -22,7 +22,7 @@ import Product from './frontend/Product';
 
 import Cart from './frontend/Cart';
 import SingleProduct from './frontend/SingleProduct';
-import Cart from './components/Cart';
+// import Cart from './components/Cart';
 
 
 // Define the App component

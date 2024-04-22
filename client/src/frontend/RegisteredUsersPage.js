@@ -39,7 +39,7 @@ const RegisteredUsersPage = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/api/registered-users');
+        const response = await axios.get('http://localhost:5000/api/registered-users');
         setUsers(response.data);
       } catch (error) {
         console.error('Error fetching registered users:', error);
@@ -53,7 +53,7 @@ const RegisteredUsersPage = () => {
     try {
       await axios.delete(`http://localhost:3001/api/registered-users/${userId}`);
       // Refresh the user list after deletion
-      const response = await axios.get('http://localhost:3001/api/registered-users');
+      const response = await axios.get('http://localhost:5000/api/registered-users');
       setUsers(response.data);
     } catch (error) {
       console.error('Error deleting user:', error);

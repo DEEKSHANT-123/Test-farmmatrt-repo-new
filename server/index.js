@@ -16,9 +16,9 @@ app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 
 
-app.get("/",(req,res)=>{
-    res.send("Server is Running");
-})
+// app.get("/",(req,res)=>{
+//     res.send("Server is Running");
+// })
 
 
 app.post("/order", async (req, res) => {
