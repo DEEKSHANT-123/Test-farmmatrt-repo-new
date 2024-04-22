@@ -15,6 +15,7 @@ const ProductCard = ({ product }) => {
           <button style={{ backgroundColor: 'skyblue' }}>Add to Cart</button>
         </div>
         {/* <p>Warranty: {product.Warranty}</p> */}
+
       </div>
     </div>
   );

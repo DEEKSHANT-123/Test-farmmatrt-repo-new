@@ -113,7 +113,6 @@ const Product = () => {
             <Link to={`/product/${product.id}`} style={{ textDecoration: 'none' }}>
               <ProductCard product={product} />
             </Link>
-            <button>Add to Cart</button>
           </div>
         ))}
       </div>
