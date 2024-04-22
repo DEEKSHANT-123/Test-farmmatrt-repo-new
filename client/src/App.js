@@ -6,7 +6,6 @@ import ProductAd from './frontend/ProductAd';
 import Home from './frontend/Home';
 import About from './frontend/About';
 import Contact from './frontend/Contact';
-import SingleProduct from './frontend/SingleProduct';
 import Payment from './frontend/Payment';
 import ErrorPage from './frontend/ErrorPage';
 import { ThemeProvider } from 'styled-components';
@@ -21,6 +20,7 @@ import StaffLogin from './frontend/StaffLogin';
 import RegisteredUsersPage from './frontend/RegisteredUsersPage';
 import Product from './frontend/Product';
 import Cart from './frontend/Cart';
+import SingleProduct from './frontend/SingleProduct';
 
 // Define the App component
 const App = () => {
