@@ -154,6 +154,7 @@ const handleEdit=(el)=>{
                 <th>Action</th>
             </tr>
         </thead>
+        
         <tbody>
             {
                 datalist[0] ?(
