@@ -1,6 +1,6 @@
 import {createContext, useContext } from "react";
 
-const AppContext = createContext();
+const CartContext = createContext();
 
 const AppProvider = ({ children }) => {
   return (
@@ -12,7 +12,7 @@ const AppProvider = ({ children }) => {
 
 // custom hooks
 const useProductContext = () => {
-  return useContext(AppContext);
+  return useContext(CartContext);
 };
 
-export { AppProvider, AppContext, useProductContext };
+export { AppProvider, CartContext, useProductContext };
