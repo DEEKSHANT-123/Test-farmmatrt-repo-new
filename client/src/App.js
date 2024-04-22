@@ -20,6 +20,7 @@ import AdminLogin from './frontend/AdminLogin';
 import StaffLogin from './frontend/StaffLogin';
 import RegisteredUsersPage from './frontend/RegisteredUsersPage';
 import Product from './frontend/Product';
+import Cart from './frontend/Cart';
 
 // Define the App component
 const App = () => {
@@ -68,6 +69,7 @@ const App = () => {
           <Route path="/admindashboard" element={<AdminDashboard isLoggedIn={isloggedIn} />} />
 
           <Route path="/registered-users" element={<RegisteredUsersPage />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </Router>

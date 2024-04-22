@@ -109,9 +109,12 @@ const Product = () => {
 
       <div className="product-grid">
         {products.map(product => (
-          <Link to={`/product/${product.id}`} key={product.id} style={{ textDecoration: 'none' }}>
-            <ProductCard product={product} />
-          </Link>
+          <div key={product.id}>
+            <Link to={`/product/${product.id}`} style={{ textDecoration: 'none' }}>
+              <ProductCard product={product} />
+            </Link>
+            <button>Add to Cart</button>
+          </div>
         ))}
       </div>
     </div>
