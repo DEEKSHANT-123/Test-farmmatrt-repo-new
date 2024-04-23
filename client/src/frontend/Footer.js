@@ -45,7 +45,6 @@ const Footer=()=>{
         <a href="https://mail.google.com/mail/?view=cm&fs=1&to=farmartis062@gmail.com">
             <span className="icons">✉</span>
           </a>
-          https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=new
         </div>
       </div>
     </div>
@@ -86,12 +85,13 @@ footer {
     }
     .footer-social--icons {
       display: flex;
-      gap: 2rem;
+      gap: 0.5rem;
+      width:20px;
 
       div {
         padding: 1rem;
         border-radius: 50%;
-        border: 2px solid ${({ theme }) => theme.colors.white};
+         border: 2px solid ${({ theme }) => theme.colors.white};
 
         .icons {
           color: ${({ theme }) => theme.colors.white};

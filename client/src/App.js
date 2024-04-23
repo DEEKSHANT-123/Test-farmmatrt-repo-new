@@ -20,8 +20,10 @@ import StaffLogin from './frontend/StaffLogin';
 import RegisteredUsersPage from './frontend/RegisteredUsersPage';
 import Product from './frontend/Product';
 
-import Cart from './frontend/Cart';
+
 import SingleProduct from './frontend/SingleProduct';
+import AddToCart from './frontend/AddtoCart';
+import ShowDetails from './frontend/ShowDetails';
 // import Cart from './components/Cart';
 
 
@@ -72,7 +74,8 @@ const App = () => {
           <Route path="/admindashboard" element={<AdminDashboard isLoggedIn={isloggedIn} />} />
 
           <Route path="/registered-users" element={<RegisteredUsersPage />} />
-          <Route path="/cart" element={<Cart />} />
+          <Route path="/addtocart" element={<AddToCart/>} />
+          <Route path="/showdetails" element={<ShowDetails/>} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </Router>
