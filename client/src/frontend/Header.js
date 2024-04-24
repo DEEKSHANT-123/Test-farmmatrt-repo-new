@@ -3,14 +3,15 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import Nav from "./Nav";
 
-const Header = ({isloggedIn,check}) => {
+
+const Header = ({isloggedIn,check,cartSize}) => {
   return (
     <div>
       <MainHeader>
         <NavLink to="/">
           <img src="/images/logo512.png" alt="My Company Logo" className="logo" />
         </NavLink>
-        <Nav isloggedIn={isloggedIn} check={check}></Nav>
+        <Nav isloggedIn={isloggedIn} check={check} size={cartSize} ></Nav>
       </MainHeader>
     </div>
   );

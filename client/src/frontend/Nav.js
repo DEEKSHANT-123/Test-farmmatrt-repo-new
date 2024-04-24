@@ -7,7 +7,8 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { FaSearch, FaShoppingCart } from "react-icons/fa";
 import "./Nav.css";
 
-const Nav = ({isloggedIn,check}) => {
+
+const Nav = ({isloggedIn,check,size}) => {
 const [showMediaIcons, setShowMediaIcons] = useState(false);
 
 const Nav = styled.nav`
@@ -64,6 +65,15 @@ className="navbar-link"
 to="/product"
 >
 Product
+</NavLink>
+</li>
+<li>
+<NavLink
+className="navbar-link"
+
+to="/farm"
+>
+Farmart Product
 </NavLink>
 </li>
 <li>
@@ -130,6 +140,7 @@ to="/search"
 </li> */}
 
 <li>
+
 <NavLink
 className="navbar-link"
 
@@ -137,7 +148,7 @@ to="/cart"
 >
 {/* <FaCartShopping /> */}
 <FaShoppingCart />
-<span>0</span>
+<span>{size}</span>
 </NavLink>
 </li>
 </ul>
