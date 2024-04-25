@@ -57,7 +57,7 @@ to="/contact"
 Contact
 </NavLink>
 </li>
-
+{/* 
 <li>
 <NavLink
 className="navbar-link"
@@ -66,7 +66,7 @@ to="/product"
 >
 Product
 </NavLink>
-</li>
+</li> */}
 <li>
 <NavLink
 className="navbar-link"
