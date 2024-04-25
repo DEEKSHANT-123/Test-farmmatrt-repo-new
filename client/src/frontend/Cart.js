@@ -50,6 +50,7 @@ const Cart = ({ cart, setCart, handleChange }) => {
             <Link to={{ pathname: "/address", state: { total: price } }}>
                 <button className="checkout-button">Proceed to Checkout</button>
             </Link>
+
         </article>
     )
 }
