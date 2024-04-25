@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
-
+import Address from './frontend/Address';
 import ProductAd from './frontend/ProductAd';
 import Home from './frontend/Home';
 import About from './frontend/About';
@@ -210,6 +210,8 @@ const App = () => {
     media: { mobile: '768px', tab: '998px' },
   };
 
+  const totalPrice = 0;
+
   return (
     <ThemeProvider theme={theme}>
       <Router>
@@ -240,6 +242,7 @@ const App = () => {
           {/* Button code using setShow */}
           <Route path="/some-route" element={<button onClick={handleShowButtonClick}>Show Something</button>} />
           <Route path="*" element={<ErrorPage />} />
+          <Route path="/address" element = {<Address total={totalPrice} />} />
         </Routes>
       </Router>
     </ThemeProvider>
