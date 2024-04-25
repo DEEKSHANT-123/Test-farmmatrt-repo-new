@@ -1,13 +1,16 @@
-.warning{
-    height: 40px;
-    width: 250px;
-    position: absolute;
-    right: 0;
-    top: 10%;
-    background-color: rgb(210, 91, 91);
-    font-size: 1.1rem;
-    color: white;
-    font-family: cursive;
-    padding: 5px;
-    border-radius: 5px;
-}
+/* FarmartProduct.css */
+
+.abcd {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-left: 150px; /* Add negative margin to compensate for card padding */
+    margin-right: 150px; /* Add negative margin to compensate for card padding */
+  }
+  
+  .abcd> * {
+    margin: 10px; /* Add margin to each card */
+  }
+  
+  /* You can add more styles here as needed */
+  

@@ -7,7 +7,7 @@ const FarmartProduct = ({ handleClick }) => {
   return (
     <>
     
-    <section>
+    <section className="abcd">
         {
             list.map((item)=>(
                 <Cards item={item} key={item.id} handleClick={handleClick} />
