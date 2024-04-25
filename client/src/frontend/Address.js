@@ -1,14 +1,16 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
-import './Address.css'; // Import the CSS file
+import { useLocation, useNavigate } from 'react-router-dom';
+import './Address.css';
 
-const Address = ({ total }) => {
-    const navigate = useNavigate(); // Initialize useNavigate
+const Address = () => {
+    const location = useLocation();
+    const navigate = useNavigate();
 
     const handleMakePayment = () => {
-        // Redirect to the Payment page
         navigate('/payment');
     }
+
+    const total = location.state && location.state.total;
 
     return (
         <div className="form-container">
@@ -52,11 +54,11 @@ const Address = ({ total }) => {
                         <input type="text" id="contact" className="input" placeholder="Contact No." />
                     </div>
                     <div className="form-group">
-                        <button onClick={handleMakePayment} className="button">Make Payment</button> {/* "Make Payment" button */}
+                        <button onClick={handleMakePayment} className="button">Make Payment</button>
                     </div>
                 </form>
                 <div>
-                    Total Price: Rs - {total} {/* Display total price */}
+                    Total Price: Rs - {total}
                 </div>
             </div>
         </div>

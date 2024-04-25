@@ -3,7 +3,7 @@ const list = [
     "id": 1,
     "title": "Neptune Sprayers",
     "author": " High Quality fibre made color: Orange",
-    "price": "₹ 789",
+    "price": 789,
     "img": "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1713980437/ft1_b3sbtl.png",
     "amount": 1
   },
@@ -11,7 +11,7 @@ const list = [
     "id": 2,
     "title": "Tarpaulin",
     "author": " High Quality fibre made color: Black Highly Durable",
-    "price": "₹ 879",
+    "price": 879,
     "img": "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1713980437/ft2_hm9vua.png",
     "amount": 1
   },
@@ -19,7 +19,7 @@ const list = [
     "id": 3,
     "title": "Brush Cutter",
     "author": " High Quality Durable Color: Red",
-    "price": "₹ 4899",
+    "price": 4899,
     "img": "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1713980436/ft3_yq5alq.png",
     "amount": 1
   },
@@ -27,7 +27,7 @@ const list = [
     "id": 4,
     "title": "Power Weeder",
     "author": " Durable color : orange and black strong and easy to hold",
-    "price": "₹ 3299",
+    "price": 3299,
     "img": "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1713980435/ft4_vzejhz.png",
     "amount": 1
   },
@@ -35,7 +35,7 @@ const list = [
     "id": 5,
     "title": "Power Weeder",
     "author": " Brand : shrachi  weight: 30 kg easy to hold and made with non rustable material",
-    "price": "₹ 5349",
+    "price": 5349,
     "img": "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1713980436/ft5_xheke0.png",
     "amount": 1
   },
@@ -68,7 +68,7 @@ const list = [
     title: "High Quality Hybrid seeds",
     author: "Pack of 6",
     price: 399,
-    img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1713878149/se4_rl4ti9.png",
+    img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1713878155/se1_a2xv95.png",
     amount: 1,
   },
   {
@@ -76,7 +76,7 @@ const list = [
     title: "Seminis",
     author: "High Quality Hybrid Tomato seeds",
     price: 249,
-    img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1713878151/se3_jr2gjh.png",
+    img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1713878151/se2_nlxzh2.png",
     amount: 1,
   },
   {
