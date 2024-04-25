@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
-import './Address.css'; // Import the CSS file
+import { useLocation, useNavigate } from 'react-router-dom';
+import './Address.css';
 
-const Address = ({ location }) => {
-    const total = location.state && location.state.total;
-
+const Address = ({ total }) => {
+    const location = useLocation();
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -17,98 +17,114 @@ const Address = ({ location }) => {
         contact: ''
     });
 
-    const navigate = useNavigate(); // Initialize useNavigate
-
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
-    };
+    }
 
-    const handleMakePayment = () => {
-        // Check if all mandatory fields are filled
-        if (
-            formData.name &&
-            formData.email &&
-            formData.address1 &&
-            formData.city &&
-            formData.state &&
-            formData.country &&
-            formData.pincode &&
-            formData.contact
-        ) {
-            // Proceed to payment page
-            navigate('/payment');
-        } else {
-            // Display error message or handle validation as needed
-            alert('Please fill in all mandatory fields.');
+    const handleEmailClick = () => {
+        alert("Use the same Email as your login Email.");
+    }
+
+    const handleMakePayment = (e) => {
+        e.preventDefault();
+        // Check if any mandatory field is empty
+        for (const key in formData) {
+            if (formData.hasOwnProperty(key) && formData[key] === '') {
+                alert(`Please fill in the ${key.replace(/[A-Z]/g, ' $&').toLowerCase()} field.`);
+                return; // Prevent form submission if any mandatory field is empty
+            }
         }
+        
+        // Validate Pincode (6 digits)
+        const pincodeRegex = /^\d{6}$/;
+        if (!pincodeRegex.test(formData.pincode)) {
+            alert("Please enter a valid 6-digit Pincode.");
+            return;
+        }
+
+        // Validate Mobile No. (10 digits)
+        const mobileRegex = /^\d{10}$/;
+        if (!mobileRegex.test(formData.contact)) {
+            alert("Please enter a valid 10-digit Mobile No.");
+            return;
+        }
+
+        // If all validations pass, navigate to the payment page
+        navigate('/payment');
     }
 
     return (
         <div className="form-container">
             <div className="address-form">
                 <h2>Address Form</h2>
-                <form>
+                <form onSubmit={handleMakePayment}>
                     <div className="form-group">
                         <label htmlFor="name" className="label">
-                            Name<span className="star">*</span>:
+                            Name:
+                            <span className="mandatory">*</span>
                         </label>
-                        <input type="text" id="name" name="name" className="input" placeholder="Enter your name" onChange={handleInputChange} required />
+                        <input type="text" id="name" name="name" className="input" placeholder="Enter your name" value={formData.name} onChange={handleInputChange} required />
                     </div>
                     <div className="form-group">
                         <label htmlFor="email" className="label">
-                            Email<span className="star">*</span>:
+                            Email:
+                            <span className="mandatory">*</span>
                         </label>
-                        <input type="email" id="email" name="email" className="input" placeholder="Enter your email" onChange={handleInputChange} required />
+                        <input type="email" id="email" name="email" className="input" placeholder="Enter your email" value={formData.email} onClick={handleEmailClick} onChange={handleInputChange} required />
                     </div>
                     <div className="form-group">
                         <label htmlFor="address1" className="label">
-                            Address Line 1<span className="star">*</span>:
+                            Address Line 1:
+                            <span className="mandatory">*</span>
                         </label>
-                        <input type="text" id="address1" name="address1" className="input" placeholder="Address Line 1" onChange={handleInputChange} required />
+                        <input type="text" id="address1" name="address1" className="input" placeholder="Address Line 1" value={formData.address1} onChange={handleInputChange} required />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="address2" className="label">
-                            Address Line 2:
-                        </label>
-                        <input type="text" id="address2" name="address2" className="input" placeholder="Address Line 2" onChange={handleInputChange} />
+                        <label htmlFor="address2" className="label">Address Line 2:</label>
+                        <input type="text" id="address2" name="address2" className="input" placeholder="Address Line 2" value={formData.address2} onChange={handleInputChange} />
                     </div>
                     <div className="form-group">
                         <label htmlFor="city" className="label">
-                            City<span className="star">*</span>:
+                            City:
+                            <span className="mandatory">*</span>
                         </label>
-                        <input type="text" id="city" name="city" className="input" placeholder="City" onChange={handleInputChange} required />
+                        <input type="text" id="city" name="city" className="input" placeholder="City" value={formData.city} onChange={handleInputChange} required />
                     </div>
                     <div className="form-group">
                         <label htmlFor="state" className="label">
-                            State<span className="star">*</span>:
+                            State:
+                            <span className="mandatory">*</span>
                         </label>
-                        <input type="text" id="state" name="state" className="input" placeholder="State" onChange={handleInputChange} required />
+                        <input type="text" id="state" name="state" className="input" placeholder="State" value={formData.state} onChange={handleInputChange} required />
                     </div>
                     <div className="form-group">
                         <label htmlFor="country" className="label">
-                            Country<span className="star">*</span>:
+                            Country:
+                            <span className="mandatory">*</span>
                         </label>
-                        <input type="text" id="country" name="country" className="input" placeholder="Country" onChange={handleInputChange} required />
+                        <input type="text" id="country" name="country" className="input" placeholder="Country" value={formData.country} onChange={handleInputChange} required />
                     </div>
                     <div className="form-group">
                         <label htmlFor="pincode" className="label">
-                            Pin Code<span className="star">*</span>:
+                            Pin Code:
+                            <span className="mandatory">*</span>
                         </label>
-                        <input type="text" id="pincode" name="pincode" className="input" placeholder="Pin Code" onChange={handleInputChange} required />
+                        <input type="text" id="pincode" name="pincode" className="input" placeholder="Pin Code" value={formData.pincode} onChange={handleInputChange} required />
                     </div>
                     <div className="form-group">
                         <label htmlFor="contact" className="label">
-                            Contact No.<span className="star">*</span>:
+                            Contact No.:
+                            <span className="mandatory">*</span>
                         </label>
-                        <input type="text" id="contact" name="contact" className="input" placeholder="Contact No." onChange={handleInputChange} required />
+                        <input type="text" id="contact" name="contact" className="input" placeholder="Contact No." value={formData.contact} onChange={handleInputChange} required />
                     </div>
                     <div className="form-group">
-                        <button type="button" onClick={handleMakePayment} className="button">Make Payment</button> {/* "Make Payment" button */}
+                        <button type="submit" className="button">Make Payment</button>
                     </div>
                 </form>
                 <div>
-                    Total Price: Rs - {total ? total : 'N/A'} {/* Display total price */}
+                    Total Price: Rs - {total}
                 </div>
             </div>
         </div>

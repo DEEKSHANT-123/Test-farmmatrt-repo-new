@@ -242,7 +242,7 @@ const App = () => {
           {/* Button code using setShow */}
           <Route path="/some-route" element={<button onClick={handleShowButtonClick}>Show Something</button>} />
           <Route path="*" element={<ErrorPage />} />
-          <Route path="/address" element={<Address location={location} />} />
+          <Route path="/address" element = {<Address total={totalPrice} />} />
         </Routes>
       </Router>
     </ThemeProvider>
