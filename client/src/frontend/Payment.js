@@ -1,5 +1,6 @@
 import React from "react";
 
+
 const Payment = () => {
   const paymentHandler = async (event) => {
     const amount = 500 *100;
