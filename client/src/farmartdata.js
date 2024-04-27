@@ -5,7 +5,8 @@ const list = [
     author: " High Quality fibre made color: Orange",
     price: 789,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1713980437/ft1_b3sbtl.png",
-    amount: 1
+    amount: 1,
+    category: "Farming Tools",
   },
   {
     id: 2,
@@ -13,7 +14,8 @@ const list = [
     author: " High Quality fibre made color: Black Highly Durable",
     price: 879,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1713980437/ft2_hm9vua.png",
-    amount: 1
+    amount: 1,
+    category: "Farming Tools",
   },
   {
     id: 3,
@@ -21,7 +23,8 @@ const list = [
     author: " High Quality Durable Color: Red",
     price: 4899,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1713980436/ft3_yq5alq.png",
-    amount: 1
+    amount: 1,
+    category: "Farming Tools",
   },
   {
     id: 4,
@@ -29,7 +32,8 @@ const list = [
     author: " Durable color : orange and black strong and easy to hold",
     price: 3299,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1713980435/ft4_vzejhz.png",
-    amount: 1
+    amount: 1,
+    category: "Farming Tools",
   },
   {
     id: 5,
@@ -37,7 +41,8 @@ const list = [
     author: " Brand : shrachi  weight: 30 kg easy to hold and made with non rustable material",
     price: 5349,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1713980436/ft5_xheke0.png",
-    amount: 1
+    amount: 1,
+    category: "Farming Tools",
   },
   {
     id: 6,
@@ -45,7 +50,8 @@ const list = [
     author: " Brand : shrachi  weight: 10 kg easy to hold and made with non rustable material",
     price: 1299,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1713980436/ft6_m9ttvl.png",
-    amount: 1
+    amount: 1,
+    category: "Farming Tools",
   },
   {
     id: 7,
@@ -53,7 +59,8 @@ const list = [
     author: " High Qulaity strong and durable",
     price: 3299,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1713980436/ft7_z8s3g0.png",
-    amount: 1
+    amount: 1,
+    category: "Farming Tools",
   },
   {
     id: 8,
@@ -61,7 +68,8 @@ const list = [
     author: " High Quality Made of Non Rustable material color : Red",
     price: 2299,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1713980436/ft8_gwncq1.png",
-    amount: 1
+    amount: 1,
+    category: "Farming Tools",
   },
   {
     id: 9,
@@ -70,6 +78,7 @@ const list = [
     price: 399,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1713878155/se1_a2xv95.png",
     amount: 1,
+    category: "Seeds",
   },
   {
     id: 10,
@@ -78,6 +87,7 @@ const list = [
     price: 249,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1713878151/se2_nlxzh2.png",
     amount: 1,
+    category: "Seeds",
   },
   {
     id: 11,
@@ -86,6 +96,7 @@ const list = [
     price: 399,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1713878151/se3_jr2gjh.png",
     amount: 1,
+    category: "Seeds",
   },
   {
     id: 12,
@@ -94,6 +105,7 @@ const list = [
     price: 329,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1713878149/se4_rl4ti9.png",
     amount: 1,
+    category: "Seeds",
   },
   {
     id: 13,
@@ -102,6 +114,7 @@ const list = [
     price: 239,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1713878149/se5_psjim6.png",
     amount: 1,
+    category: "Seeds",
   },
   {
     id: 14,
@@ -110,6 +123,7 @@ const list = [
     price: 349,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1713877998/cp1_ip3hqr.png",
     amount: 1,
+    category: "Crop Protection",
   },
   {
     id: 15,
@@ -118,6 +132,7 @@ const list = [
     price: 456,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1713878001/cp2_u40oc9.png",
     amount: 1,
+    category: "Crop Protection",
   },
   {
     id: 16,
@@ -126,6 +141,7 @@ const list = [
     price: 149,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1713878001/cp3_mkpyh2.png",
     amount: 1,
+    category: "Crop Protection",
   },
   {
     id: 17,
@@ -134,6 +150,7 @@ const list = [
     price: 349,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1713877994/cp4_s6xvdq.png",
     amount: 1,
+    category: "Crop Protection",
   },
   {
     id: 18,
@@ -142,6 +159,7 @@ const list = [
     price: 249,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1713878002/cp5_to11iy.png",
     amount: 1,
+    category: "Crop Protection",
   },
   {
     id: 19,
@@ -149,7 +167,8 @@ const list = [
     author: " 1 Litres pack of 2",
     price: 349,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1714038021/ph1_jchqfu.png",
-    amount: 1
+    amount: 1,
+    category: "Pesticides"
   },
   {
     id: 20,
@@ -157,7 +176,8 @@ const list = [
     author: "weight 500 gm Halosulphuron Methyl 75 %",
     price: 560,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1714037908/ph2_ukwayf.png",
-    amount: 1
+    amount: 1,
+    category: "Pesticides"
   },
   {
     id: 21,
@@ -165,7 +185,8 @@ const list = [
     author: " 1 Litre Pack highly toxic",
     price: 399,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1714202167/ph3_npi32q.png",
-    amount: 1
+    amount: 1,
+    category: "Pesticides"
   },
   {
     id: 22,
@@ -173,7 +194,8 @@ const list = [
     author: " Herbicide weight 5 Litres",
     price: 1299,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1714202166/ph4_qzwzeh.png",
-    amount: 1
+    amount: 1,
+    category: "Pesticides"
   },
   {
     id: 23,
@@ -181,7 +203,8 @@ const list = [
     author: " Biological Insecticide Pack of 3",
     price: 699,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1714038217/ph5_l1xzgq.png",
-    amount: 1
+    amount: 1,
+    category: "Pesticides"
   },
   {
     id: 24,
@@ -189,7 +212,8 @@ const list = [
     author: "Insecticides 1 litres each",
     price: 499,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1714038114/ph6_vqa6v7.png",
-    amount: 1
+    amount: 1,
+    category: "Pesticides"
   },
   {
     id: 25,
@@ -197,7 +221,8 @@ const list = [
     author: "Insecticide contains Brofanilide chemical",
     price: 387,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1714037672/ph7_daq0z2.png",
-    amount: 1
+    amount: 1,
+    category: "Pesticides"
   },
   {
     id: 26,
@@ -205,7 +230,8 @@ const list = [
     author: "Glyphosphate Herbicide contains 41 % concentration",
     price: 567,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1714038358/ph8_hv2mvz.png",
-    amount: 1
+    amount: 1,
+    category: "Pesticides"
   },
   {
     id: 27,
@@ -213,7 +239,8 @@ const list = [
     author: "writeen By : Dr M.M.Aggrawal Language : Hindi",
     price: 240,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1714202410/fe1_lyypzt.png",
-    amount: 1
+    amount: 1,
+    category: "Educational Resources"
   },
   {
     id: 28,
@@ -221,7 +248,8 @@ const list = [
     author: " RATAN GOLD Publication net weight 1 kg language : English",
     price: 237,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1714202410/fe2_cfoud0.png",
-    amount: 1
+    amount: 1,
+    category: "Educational Resources"
   },
   {
     id: 29,
@@ -229,7 +257,8 @@ const list = [
     author: "farm guide for health food from the farms language :English",
     price: 149,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1714039620/fe3_o0w4dt.png",
-    amount: 1
+    amount: 1,
+    category: "Educational Resources"
   },
   {
     id: 30,
@@ -237,7 +266,8 @@ const list = [
     author: "By Dr.D. K Dangi & Dr. K.S Kadian language : English",
     price: 399,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1714039395/fe4_yna4nt.png",
-    amount: 1
+    amount: 1,
+    category: "Educational Resources"
   },
   {
     id: 31,
@@ -245,7 +275,8 @@ const list = [
     author: "By Dr. Rangalal Mohapatra language: English",
     price: 349,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1714202553/fe5_aheeku.png",
-    amount: 1
+    amount: 1,
+    category: "Educational Resources"
   },
   {
     id: 32,
@@ -253,7 +284,8 @@ const list = [
     author: "Modern technology and the state of world's Farmers language : english",
     price: 459,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1714202554/fe6_x5jnhi.png",
-    amount: 1
+    amount: 1,
+    category: "Educational Resources"
   },
   {
     id: 33,
@@ -261,7 +293,8 @@ const list = [
     author: " By Elvira Digrit language: english",
     price: 299,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1714039441/fe7_roqjh0.png",
-    amount: 1
+    amount: 1,
+    category: "Educational Resources"
   },
   {
     id: 34,
@@ -269,7 +302,8 @@ const list = [
     author: " Language : Hindi",
     price: 99,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1714038595/fe8_begdse.png",
-    amount: 1
+    amount: 1,
+    category: "Educational Resources"
   },
   {
     id: 35,
@@ -277,7 +311,8 @@ const list = [
     author: "Carrier based consotia available in Both HIndi and English",
     price: 149,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1714039010/fe9_pnl97x.png",
-    amount: 1
+    amount: 1,
+    category: "Educational Resources"
   },
   {
     id: 36,
@@ -285,7 +320,8 @@ const list = [
     author: "weight: 50kg Good Quality 20% boron concentrate",
     price: 499,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1714064082/f1_mn7ktb.png",
-    amount: 1
+    amount: 1,
+    category: "Fertilizer"
   },
   {
     id: 37,
@@ -293,7 +329,8 @@ const list = [
     author: "Brand: PHOM weight: 30 kg",
     price: 999,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1714064079/f2_xufumf.png",
-    amount: 1
+    amount: 11,
+    category: "Fertilizer"
   },
   {
     id: 38,
@@ -301,7 +338,8 @@ const list = [
     author: "weight: 20 kg magnesium: 9.5% sulphur:12 %",
     price: 799,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1714064078/f3_nhoaq9.png",
-    amount: 1
+    amount: 11,
+    category: "Fertilizer"
   },
   {
     id: 39,
@@ -309,7 +347,8 @@ const list = [
     author: "weight: 50kg brand: Calsiphos",
     price: 499,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1714064077/f4_el1etq.png",
-    amount: 1
+    amount: 11,
+    category: "Fertilizer"
   },
   {
     id: 40,
@@ -317,7 +356,8 @@ const list = [
     author: "Brand: Gacil weight :10 kg",
     price: 1299,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1714064086/f5_rqjtgi.png",
-    amount: 1
+    amount: 11,
+    category: "Fertilizer"
   },
   {
     id: 41,
@@ -325,7 +365,8 @@ const list = [
     author: "Brand: ProKissan weight: 20 kg",
     price: 1499,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1714064081/f6_ky94xz.png",
-    amount: 1
+    amount: 11,
+    category: "Fertilizer"
   },
   {
     id: 42,
@@ -333,7 +374,8 @@ const list = [
     author: "Brand: Gardeco weight: 10 kg",
     price: 499,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1714064081/f7_hkdhgx.png",
-    amount: 1
+    amount: 11,
+    category: "Fertilizer"
   },
   {
     id: 43,
@@ -341,7 +383,8 @@ const list = [
     author: "Good Quality flower and fruit fertilizers weight: 5 kg each",
     price: 599,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1714064088/f8_ziu19k.png",
-    amount: 1
+    amount: 11,
+    category: "Fertilizer"
   },
   {
     id: 44,
@@ -349,7 +392,8 @@ const list = [
     author: "High Grade Quality contains all necessary equipments",
     price: 1299,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1714064171/fc1_dzpekb.png",
-    amount: 1
+    amount: 1,
+    category: "Safety Gears"
   },
   {
     id: 45,
@@ -357,7 +401,8 @@ const list = [
     author: "color: White Highly Durable stretchable fit",
     price: 1599,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1714064170/fc2_yoo64d.png",
-    amount: 1
+    amount: 1,
+    category: "Safety Gears"
   },
   {
     id: 46,
@@ -365,7 +410,8 @@ const list = [
     author: "Branded Highly Durable ventilated",
     price: 567,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1714064171/fc3_mobd22.png",
-    amount: 1
+    amount: 1,
+    category: "Safety Gears"
   },
   {
     id: 47,
@@ -373,7 +419,8 @@ const list = [
     author: "Former Respiratory, Eye & Hand protection kit",
     price: 1199,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1714064178/fc4_rnzb8u.png",
-    amount: 1
+    amount: 1,
+    category: "Safety Gears"
   },
   {
     id: 48,
@@ -381,7 +428,8 @@ const list = [
     author: "PS 410 SLV color: yellow",
     price: 99,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1714064170/fc5_pizdfm.png",
-    amount: 1
+    amount: 1,
+    category: "Safety Gears"
   },
   {
     id: 49,
@@ -389,7 +437,8 @@ const list = [
     author: "Durable High Quality easy fit color: Blue",
     price: 349,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1714064172/fc6_agkwvl.png",
-    amount: 1
+    amount: 1,
+    category: "Safety Gears"
   },
   {
     id: 50,
@@ -397,7 +446,8 @@ const list = [
     author: "Protects from harmful chemicals large sized color: yellow",
     price: 149,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1714064167/fc7_uxrrxl.png",
-    amount: 1
+    amount: 1,
+    category: "Safety Gears"
   },
   {
     id: 51,
@@ -405,7 +455,8 @@ const list = [
     author: "complete farm protection kit protects from harmful rays and chemicals",
     price: 679,
     img: "https://res.cloudinary.com/dwqbg2rt6/image/upload/v1714202997/fc8_g131ri.png",
-    amount: 1
+    amount: 1,
+    category: "Safety Gears"
   },
 ];
 
