@@ -7,14 +7,14 @@ export const SafetyGearsData = [
     Image: "./Product_images/fc1.png",
     Warranty:"1 Year",
   },
-  // {
-  //     id: 40,
-  //     Name: "Personal Protective Equipment",
-  //     Description: " color : White Highly Durable strechable fit",
-  //     Rs: 1599,
-  //     Image: "./Product_images/fc2.png",
-  //     Warranty:"1 year",
-  //   },
+  {
+      id: 40,
+      Name: "Personal Protective Equipment",
+      Description: " color : White Highly Durable strechable fit",
+      Rs: 1599,
+      Image: "./Product_images/fc2.png",
+      Warranty:"1 year",
+    },
     {
       id: 41,
       Name: "Farm Gloves and Mask",

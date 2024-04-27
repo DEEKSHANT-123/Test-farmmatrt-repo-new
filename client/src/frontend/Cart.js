@@ -47,28 +47,16 @@ const Cart = ({ cart, setCart, handleChange }) => {
                 <span>Total Price of your Cart</span>
                 <span>Rs - {price}</span>
             </div>
-            {/* <Link to={{ pathname: "/address", state: { total: price } }}>
-                <button className="checkout-button">Proceed to Checkout</button>
-<<<<<<< HEAD
-            </Link> */}
-     
-{/* if price is zero then move to thefarmart product page */}
-{price !== 0 ? (
-    <Link to={{ pathname: "/address", state: { total: price } }}>
-        <button className="checkout-button">Proceed to Checkout</button>
-    </Link>
-) : (  <Link to={{ pathname: "/farm" }}>
-        <button className="checkout-button">Proceed to Checkout</button>
-    </Link>
-)}
-
-
-
-
-=======
-            </Link>
->>>>>>> 21d7e1ac7717447337a59645e90d1ca4098bd6f4
-
+            {/* if price is zero then move to the farmart product page */}
+            {price !== 0 ? (
+                <Link to={{ pathname: "/address", state: { total: price } }}>
+                    <button className="checkout-button">Proceed to Checkout</button>
+                </Link>
+            ) : (
+                <Link to={{ pathname: "/farm" }}>
+                    <button className="checkout-button">Proceed to Checkout</button>
+                </Link>
+            )}
         </article>
     )
 }
