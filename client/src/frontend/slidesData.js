@@ -50,3 +50,4 @@ export const slidesData = [
       link: "/farm",
     },
   ];
+  

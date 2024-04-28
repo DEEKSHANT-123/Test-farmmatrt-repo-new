@@ -1,8 +1,9 @@
-import React from "react";
+import React,{ useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import './ProductAd.css'
 
-const ProductForm=({handleSubmit,handleOnChange,handleclose,rest})=>{
+const ProductForm=({handleSubmit,handleOnChange,handleFileInputChange,handleclose,rest})=>{
+   
     return(
         <div className="addcontainer">
         <form onSubmit={handleSubmit}>
@@ -18,9 +19,16 @@ const ProductForm=({handleSubmit,handleOnChange,handleclose,rest})=>{
             <lable htmlFor="name">Product Price:</lable>
             <input Type="text" id="price" name="price" onChange={handleOnChange} value={rest.price}></input>
 
-            <lable htmlFor="name">Product Waranty:</lable>
+            <lable htmlFor="name">Product Warranty:</lable>
             <input Type="text" id="waranty" name="waranty" onChange={handleOnChange} value={rest.waranty}></input>
+            {/* <label htmlFor="image">Product Image:</label>
+        <input type="file" id="image" name="image" accept="image/*" onChange={handleFileInputChange} /> */}
+        <label htmlFor="image">Product Image:</label>
+<input type="file" id="image" name="image" onChange={handleFileInputChange}  />
+
+
             <button className="btn"> Submit</button>
+
 
         </form>
     </div>
@@ -28,6 +36,3 @@ const ProductForm=({handleSubmit,handleOnChange,handleclose,rest})=>{
 }
 
 export default ProductForm;
-
-
-//jejdwiujdHFIJVO'IUUFJNOU
