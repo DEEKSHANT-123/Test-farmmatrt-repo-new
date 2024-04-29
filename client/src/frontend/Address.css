@@ -5,8 +5,9 @@
   .label {
     display: block;
     font-weight: bold;
-    font-size: 14px;
+    text-transform: lowercase;
   }
+ 
   
   .input {
     width: 100%;

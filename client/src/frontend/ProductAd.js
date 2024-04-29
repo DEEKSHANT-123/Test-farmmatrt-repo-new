@@ -15,6 +15,7 @@ const ProductAd=()=>{
         description:"",
         price:"",
         waranty:"",
+        image: null // Initialize image state
 
     })
 
@@ -24,6 +25,7 @@ const ProductAd=()=>{
         description:"",
         price:"",
         waranty:"",
+
         _id:""
 
     })
@@ -39,36 +41,62 @@ const ProductAd=()=>{
         })
     }
 
-    const handleSubmit=async(e)=>{
-        e.preventDefault()
-        const data=await axios.post("/addproduct",formData)
-        console.log(data)
-        if(data.data.success){
-            setAddSection(false)
-            alert(data.data.message)
-            getFetchData()
-            setFormData({
-                name:"",
-                description:"",
-                price:"",
-                waranty:"",
-            })
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.post("/addproduct", formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
+            console.log(response.data);
+            if (response.data.success) {
+                setAddSection(false);
+                alert(response.data.message);
+                getFetchData();
+                setFormData({
+                    name: "",
+                    description: "",
+                    price: "",
+                    waranty: "",
+                    image: ""
+                });
+            }
+        } catch (error) {
+            console.error("Error adding product:", error);
+            // Handle error, show error message, etc.
         }
     }
-//fetch data
-    const getFetchData=async()=>{
-        const data=await axios.get("/")
-        console.log(data)
-        if(data.data.success){
-            setDataList(data.data.data)
-            // alert(data.data.message)
+    
+// //fetch data
+//     const getFetchData=async()=>{
+//         const data=await axios.get("/")
+//         console.log(data)
+//         if(data.data.success){
+//             setDataList(data.data.data)
+//             // alert(data.data.message)
+//         }
+
+//     }
+
+const getFetchData = async () => {
+    try {
+        const response = await axios.get("http://localhost:5000/productdetails");
+        console.log(response.data); // Log response data to verify
+        if (response.data.success) {
+            setDataList(response.data.data);
+            // alert(response.data.message);
         }
-
+    } catch (error) {
+        console.error("Error fetching data:", error); // Log any errors
+        // Handle error gracefully (e.g., show error message to user)
     }
+};
 
-    useEffect(()=>{
-        getFetchData()
-    },[])
+
+useEffect(()=>{
+    getFetchData()
+},[])
 
 //delete handller
 const handleDelete =async(id)=>{
@@ -80,35 +108,87 @@ const handleDelete =async(id)=>{
 }
 //Edit/update handller
 
-const handleUpdate=async(e)=>{
-    e.preventDefault()
-    const data=await axios.put("/updateproduct",formDataEdit)
-    if(data.data.success){
-        getFetchData()
-        alert(data.data.message)
-        setEditSection(false)
+// const handleUpdate=async(e)=>{
+//     e.preventDefault()
+//     const data=await axios.put("/updateproduct",formDataEdit)
+//     if(data.data.success){
+//         getFetchData()
+//         alert(data.data.message)
+//         setEditSection(false)
+//     }
+
+// }
+
+// const handleUpdate = async (e) => {
+//     e.preventDefault();
+//     const { _id, ...rest } = formDataEdit; // Extract the ID from formDataEdit
+//     const data = await axios.put(`/updateproduct/${_id}`, rest); // Include the ID in the URL and send the rest of the data
+//     if (data.data.success) {
+//         getFetchData();
+//         alert(data.data.message);
+//         setEditSection(false);
+//     }
+// }
+
+
+const handleUpdate = async (e) => {
+    e.preventDefault();
+    console.log(formDataEdit);
+    const { _id, ...rest } = formDataEdit;
+    const formDataWithImage = new FormData();
+
+    // Append other form data fields
+    formDataWithImage.append('name', formDataEdit.name);
+    formDataWithImage.append('description', formDataEdit.description);
+    formDataWithImage.append('price', formDataEdit.price);
+    formDataWithImage.append('waranty', formDataEdit.waranty);
+    formDataWithImage.append('image', formDataEdit.image);
+    
+    const data = await axios.put(`/updateproduct/${_id}`, formDataWithImage);
+    if (data.data.success) {
+        getFetchData();
+        alert(data.data.message);
+        setEditSection(false);
+    }
+};
+
+
+
+
+
+
+const handleEditOnChange=async(e)=>{
+    const {value,name,files}=e.target
+    if (name === 'image') {
+        setFormDataEdit((prevFormData) => ({
+            ...prevFormData,
+            image: files[0] // Update the image with the selected file
+        }));
+    } else {
+        setFormDataEdit((prevFormData) => ({
+            ...prevFormData,
+            [name]: value
+        }));
     }
 
 }
-
-const handleEditOnChange=async(e)=>{
-    const {value,name}=e.target
-        setFormDataEdit((preve)=>{
-            return{
-                ...preve,
-                [name]:value
-            }
-        })
-
-}
 const handleEdit=(el)=>{
-    setFormDataEdit(el)
+    setFormDataEdit({
+        ...el,
+        image: el.image // Include the image data in formDataEdit
+    });
     setEditSection(true)
 
 }
 
 
-
+const handleFileInputChange = (e) => {
+    const file = e.target.files[0];
+   setFormData((prevFormData) => ({
+       ...prevFormData,
+       image: file // Set the image file in the formData state
+    }));
+ };
 
     return (
 
@@ -121,8 +201,10 @@ const handleEdit=(el)=>{
                 //product add form is here
                <ProductForm
                 handleSubmit={handleSubmit}
+                handleFileInputChange={handleFileInputChange}
                 handleOnChange={handleOnChange}
                 handleclose={()=>setAddSection(false)}
+
                 rest={formData}
                
                />
@@ -133,6 +215,7 @@ const handleEdit=(el)=>{
             editSection && (
                 <ProductForm
                 handleSubmit={handleUpdate}
+                handleFileInputChange={handleFileInputChange}
                 handleOnChange={handleEditOnChange}
                 handleclose={()=>setEditSection(false)}
                 rest={formDataEdit}
@@ -151,7 +234,8 @@ const handleEdit=(el)=>{
                 <th>Product Name</th>
                 <th>Product Description</th>
                 <th>Product Price</th>
-                <th>Product Waranty</th>
+                <th>Product Warranty</th>
+                <th>Product Image</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -162,14 +246,22 @@ const handleEdit=(el)=>{
                 datalist.map((el)=>{
                     console.log(el)
                     return(
-                        <tr>
+                        <tr key={el._id}>
                             <td>{el.name}</td>
                             <td>{el.description}</td>
                             <td>{el.price}</td>
                             <td>{el.waranty}</td>
+                            <td style={{ backgroundColor: "lightgray" }}>
+                            <img src={`http://localhost:5000/images/${el.image}`} alt={el.name} 
+                            width="500px"
+                            height="250px" 
+                            style={{ border: "1px solid black" }}                          
+                            />
+              
+                            </td>
                             <td>
                             <button className="btn btn-edit" onClick={()=>handleEdit(el)}>Edit</button>
-                    <button className="btn btn-delete" onClick={()=>handleDelete(el._id)}>Delete</button>
+                           <button className="btn btn-delete" onClick={()=>handleDelete(el._id)}>Delete</button>
                             </td>
                         </tr>
                     )
