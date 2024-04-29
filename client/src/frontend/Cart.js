@@ -62,3 +62,4 @@ const Cart = ({ cart, setCart, handleChange }) => {
 }
 
 export default Cart;
+
