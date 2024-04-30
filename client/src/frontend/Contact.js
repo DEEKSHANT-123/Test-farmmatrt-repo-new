@@ -14,6 +14,7 @@ const Contact = () => {
         margin: auto;
         .contact-inputs {
           display: flex;
+          text-transform: lowercase;
           flex-direction: column;
           gap: 3rem;
           input[type="submit"] {

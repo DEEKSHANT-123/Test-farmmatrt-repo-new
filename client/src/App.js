@@ -25,7 +25,7 @@ import Product from './frontend/Product';
 import SingleProduct from './frontend/SingleProduct';
 import AddToCart from './frontend/AddtoCart';
 import ShowDetails from './frontend/ShowDetails';
-// import Cart from './components/Cart'
+
 
 import FarmartProduct from './frontend/FarmartProduct';
 import Cart from './frontend/Cart';
