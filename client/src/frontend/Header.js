@@ -2,16 +2,20 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import Nav from "./Nav";
+import { useAuth } from "./auth";
+import { useEffect } from "react";
 
 
-const Header = ({isloggedIn,check,cartSize}) => {
+const Header = ({cartSize}) => {
+//const isaloggedIn = useAuth();
+
   return (
     <div>
       <MainHeader>
         <NavLink to="/">
           <img src="/images/logo512.png" alt="My Company Logo" className="logo" />
         </NavLink>
-        <Nav isloggedIn={isloggedIn} check={check} size={cartSize} ></Nav>
+        <Nav   size={cartSize} ></Nav>
       </MainHeader>
     </div>
   );

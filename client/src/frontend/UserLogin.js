@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 import styled from "styled-components";
 import { Button } from "./Button";
+import axios from "axios";
+import { useAuth } from "./auth";
 
 
 // Styled components for UserLogin component
@@ -37,10 +39,12 @@ border: 1px solid ${({ theme }) => theme.colors.border};
 border-radius: 4px;
 `;
 
-const UserLogin = ({isloggedIn,check}) => {
+const UserLogin = () => {
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
-const navigate=useNavigate();
+//const navigate=useNavigate();
+const { storetokenInLS}= useAuth();
+//const {isaloggedIn}= useAuth();
 
 //const { logoutHandler } = location.state;
 
@@ -48,17 +52,19 @@ const handleLogin = async (e) => {
 e.preventDefault();
 
 try {
-const response = await fetch("http://localhost:5000/api/login", {
-method: "POST",
-headers: { "Content-Type": "application/json" },
-body: JSON.stringify({ email, password }),
-});
+    const details = {
+        email : email,
+        password : password
+    }
+const response = await axios.post("http://localhost:5000/api/login", details);
 
-if (response.ok) {
+if (response.status === 200) {
 alert("Login successful!");
-check();
+
+storetokenInLS(response.data.token);
+
 // window.location.href = "http://localhost:3000"; // Redirect on success
-navigate('/');
+window.location.href = '/';
 } else {
 throw new Error("Invalid email or password");
 }

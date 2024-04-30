@@ -30,6 +30,12 @@ import ShowDetails from './frontend/ShowDetails';
 import FarmartProduct from './frontend/FarmartProduct';
 import Cart from './frontend/Cart';
 import Cards from './frontend/Cards';
+import { Logout } from './frontend/logout';
+import { AdminLogout } from './frontend/adminlogout';
+import { useAuth } from './frontend/auth';
+//import { useEffect } from 'react';
+import Privateroute from './frontend/Privateroute';
+import Privateadminroute from './frontend/Privateadminroute';
 
 
 // Define the App component
@@ -153,8 +159,9 @@ import Cards from './frontend/Cards';
 ////////new changes by dee
 
 const App = () => {
-  const [isloggedIn, setisloggedIn] = useState(true);
-  const checkloggin = () => setisloggedIn((isloggedIn) => !isloggedIn);
+
+  const {isaloggedIn}= useAuth();
+  
 
   const [cart, setCart] = useState([]);
   const [warning, setWarning] = useState(false);
@@ -216,7 +223,7 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <Router>
         <GlobalStyle />
-        <Header isloggedIn={isloggedIn} check={checkloggin} cartSize={cart.length} />
+        <Header   cartSize={cart.length} />
         <br />
         <br />
         <Routes>
@@ -227,16 +234,22 @@ const App = () => {
           <Route path="/payment" element={<Payment />} />
           <Route path="/product" element={<Product />} />
           <Route path="/product/:id" element={<SingleProduct />} />
-          <Route path="/user/login" element={<UserLogin isloggedIn={isloggedIn} check={checkloggin} />} />
+          <Route path="/user/login" element={<UserLogin />} />
+          <Route path="/logout" element={<Logout/>}/>
+          <Route path="/adminlogout" element={<AdminLogout/>}/>
           <Route path="/signup" element={<Signup />} />
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/staff/login" element={<StaffLogin />} />
-          <Route path="/admindashboard" element={<AdminDashboard isLoggedIn={isloggedIn} />} />
-          <Route path="/registered-users" element={<RegisteredUsersPage />} />
+          <Route path="/private" element={<Privateadminroute/>}>
+            <Route path="admindashboard" element={<AdminDashboard  />} />
+          </Route>
+         <Route path="/registered-users" element={<RegisteredUsersPage />} />
           <Route path="/addtocart" element={<AddToCart />} />
           <Route path="/showdetails" element={<ShowDetails />} />
           <Route path="/farmc" element={<React.Fragment><Cart cart={cart} setCart={setCart} handleChange={handleChange} /> {warning && <div className='warning'> Item is already added to your cart</div>}</React.Fragment>} />
-          <Route path="/farm" element={<FarmartProduct handleClick={handleClick} />} />
+          <Route path="/user" element={<Privateroute />}>
+             <Route path="farm" element={<FarmartProduct handleClick={handleClick} />} />
+             </Route>
           <Route path="/fcard" element={<Cards />} />
           <Route path="/cart" element={<Cart cart={cart} setCart={setCart} handleChange={handleChange} />} />
           {/* Button code using setShow */}

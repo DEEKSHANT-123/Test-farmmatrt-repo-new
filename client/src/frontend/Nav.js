@@ -6,14 +6,15 @@ import styled from "styled-components";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaSearch, FaShoppingCart } from "react-icons/fa";
 import "./Nav.css";
+import { useAuth } from "./auth";
+import { useEffect } from "react";
+const Nav = styled.nav``;
 
-
-const Nav = ({isloggedIn,check,size}) => {
+const Navi = ({check,size}) => {
+const {isaloggedIn, user } = useAuth();
 const [showMediaIcons, setShowMediaIcons] = useState(false);
 
-const Nav = styled.nav`
 
-`;
 
 return (
 <Nav className="main-nav">
@@ -71,17 +72,23 @@ Product
 <NavLink
 className="navbar-link"
 
-to="/farm"
+to="/user/farm"
 >
 Farmart Product
 </NavLink>
 </li>
+
+ {isaloggedIn &&(
+    <li>
+    <h3>Welcome {user.username}</h3>
+    </li>
+)} 
 <li>
 <div className="dropdown">
 <div>
-{!isloggedIn ? (
+{isaloggedIn ? (
 // Render logout button if user is logged in
-<button className="navbar-link" onClick={check}>Logout</button>
+<NavLink className="navbar-link" to = "/logout">LOGOUT</NavLink>
 ) : (
 // Render login button if user is not logged in
 <div><button className="dropbtn">LOGIN</button>
@@ -165,4 +172,4 @@ to="/cart"
 );
 };
 
-export default Nav;
+export default Navi;
