@@ -1,5 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { useAdminAuth } from './adminauth';
+import styled from "styled-components";
+import "./Nav.css";
 
 const containerStyle = {
   display: 'flex',
@@ -45,9 +48,16 @@ const logoutButtonStyle = {
 };
 
 const AdminDashboard = () => {
-  const handleLogout = () => {
-    window.location.href = '/admin/login'; // Redirect to admin login page
-  };
+  const{isadloggedIn}= useAdminAuth();
+  // const handleLogout = () => {
+  //   if (isadloggedIn) {
+  //     window.location.href='/adminlogout';
+  //   } else {
+  //     throw new Error('Admin Not Logged in');
+      
+  //   }
+  //   window.location.href = '/admin/login'; // Redirect to admin login page
+  // };
 
   return (
     <div style={containerStyle}>
@@ -68,10 +78,13 @@ const AdminDashboard = () => {
           
         </div>
       </div>
-      <button style={logoutButtonStyle} onClick={handleLogout}>
+      
+      {/* <button style={logoutButtonStyle} onClick={handleLogout}>
         Logout
-      </button>
-    </div>
+      </button> */}
+      <NavLink className="navbar-link" to = "/adminlogout">LOGOUT</NavLink>
+    </div> 
+    
   );
 };
 

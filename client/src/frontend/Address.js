@@ -123,7 +123,7 @@ const Address = ({ total }) => {
                         <button type="submit" className="button">Make Payment</button>
                     </div>
                 </form>
-                <div>
+                <div style={{ fontSize: '16px'}}>
                     Total Price: Rs - {total}
                 </div>
             </div>
@@ -132,3 +132,5 @@ const Address = ({ total }) => {
 }
 
 export default Address;
+
+

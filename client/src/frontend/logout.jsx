@@ -1,10 +1,13 @@
-import{NavLink} from 'react-router-dom';
+import { useEffect } from "react";
+import { Navigate } from "react-router-dom";
+import { useAuth } from "./auth";
 
+export const Logout = () =>{
+    const {LogoutUser} = useAuth();
 
-function logoutwe({check}){
-    return (
-        <div><NavLink onClick={check}>Logout</NavLink></div>
-    );
+    useEffect(() =>{
+        LogoutUser();
+    }, [LogoutUser]);
+
+    return < Navigate to="/user/login" />;
 }
-
-export default logoutwe;

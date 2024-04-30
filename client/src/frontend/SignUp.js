@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Button } from "./Button";
+import { useAuth } from "./auth";
 
 // Styled components for SignUp component
 const SignUpContainer = styled.div`
@@ -47,6 +48,7 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [signedUp, setSignedUp] = useState(false);
+  const { storetokenInLS}= useAuth();
 
   const handleSignUp = async (e) => {
     e.preventDefault();
@@ -56,8 +58,12 @@ const SignUp = () => {
         email,
         password,
       });
-      if (response.status === 201) {
+      if (response.status === 200) {
+        //const res_data = await response.json();
+        console.log("response from server", response.data);
+        storetokenInLS(response.data.token);
         setSignedUp(true);
+        alert("SignUp Successfull");
       }
     } catch (error) {
       console.error("Signup error:", error);

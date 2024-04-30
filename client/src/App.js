@@ -30,15 +30,29 @@ import RegisteredUsersPage from './frontend/RegisteredUsersPage';
 // import FarmartProduct from './frontend/FarmartProduct';
 import Cart from './frontend/Cart';
 import Cards from './frontend/Cards';
+
 import FarmartFarm from './frontend/FarmartFarm';
 import WarningAlert from './frontend/WarningAlert';
+
+import { Logout } from './frontend/logout';
+import { AdminLogout } from './frontend/adminlogout';
+import { useAuth } from './frontend/auth';
+//import { useEffect } from 'react';
+import Privateroute from './frontend/Privateroute';
+import Privateadminroute from './frontend/Privateadminroute';
+
 
 
 
 const App = () => {
+
   
   const [isloggedIn, setisloggedIn] = useState(true);
   const checkloggin = () => setisloggedIn((isloggedIn) => !isloggedIn);
+
+
+  const {isaloggedIn}= useAuth();
+  
 
  
   const [cart, setCart] = useState([]);
@@ -101,10 +115,13 @@ setTimeout(() => setWarning(''), 2000); // Hide warning after 2 seconds
     <ThemeProvider theme={theme}>
       <Router>
         <GlobalStyle />
+
         <Header isloggedIn={isloggedIn} check={checkloggin} cartSize={cart.length} />
        {/* Display the WarningAlert if there is a message */}
        <WarningAlert message={warning} />
         
+        <Header   cartSize={cart.length} />
+
         <br />
         <br />
         <Routes>
@@ -113,18 +130,30 @@ setTimeout(() => setWarning(''), 2000); // Hide warning after 2 seconds
           <Route path="/productad" element={<ProductAd />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/payment" element={<Payment />} />
-          {/* <Route path="/product" element={<Product />} /> */}
-          {/* <Route path="/product/:id" element={<SingleProduct />} /> */}
+
           <Route path="/user/login" element={<UserLogin isloggedIn={isloggedIn} check={checkloggin} />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/staff/login" element={<StaffLogin />} />
           <Route path="/admindashboard" element={<AdminDashboard isLoggedIn={isloggedIn} />} />
           <Route path="/registered-users" element={<RegisteredUsersPage />} />
-          {/* <Route path="/addtocart" element={<AddToCart />} />
-          <Route path="/showdetails" element={<ShowDetails />} /> */}
           <Route path="/farmc" element={<React.Fragment><Cart cart={cart} setCart={setCart} handleChange={handleChange} /> </React.Fragment>} />
-          {/* <Route path="/farm" element={<FarmartProduct />} /> */}
+          <Route path="/product" element={<Product />} />
+          <Route path="/product/:id" element={<SingleProduct />} />
+          <Route path="/user/login" element={<UserLogin />} />
+          <Route path="/logout" element={<Logout/>}/>
+          <Route path="/adminlogout" element={<AdminLogout/>}/>
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/staff/login" element={<StaffLogin />} />
+          <Route path="/private" element={<Privateadminroute/>}>
+            <Route path="admindashboard" element={<AdminDashboard  />} />
+          </Route>
+         <Route path="/registered-users" element={<RegisteredUsersPage />} />
+          <Route path="/farmc" element={<React.Fragment><Cart cart={cart} setCart={setCart} handleChange={handleChange} /> {warning && <div className='warning'> Item is already added to your cart</div>}</React.Fragment>} />
+          <Route path="/user" element={<Privateroute />}>
+             <Route path="farm" element={<FarmartProduct handleClick={handleClick} />} />
+             </Route>
           <Route path="/fcard" element={<Cards />} />
         
           

@@ -3,6 +3,8 @@ const router = express.Router();
 const RegisteredUser = require("./models/registereduser");
 const Admin = require("./models/admin");
 const Staff = require('./models/staff');
+const authmiddleware= require("./auth-middleware");
+const adminauthmiddleware= require("./adminauth-middleware");
 
 router.post("/login", async (req, res) => {
   try {
@@ -18,7 +20,12 @@ router.post("/login", async (req, res) => {
 
     if (isMatch) {
       // Login successful
-      res.sendStatus(200);
+      
+      res.status(200).send({
+        msg: "Login Successful",
+        token:await user.generateToken(),
+        userId:user._id.toString(),
+      });
     } else {
       throw new Error("Invalid email or password");
     }
@@ -39,7 +46,11 @@ return res.status(401).send("Invalid email or password");
 }
 
 // Authentication successful
-res.sendStatus(200); // OK
+res.status(200).send({
+  msg: "Admin Login Successful",
+  token:await admin.generateToken(),
+  userId:admin._id.toString(),
+}); // OK
 } catch (error) {
 console.error("Admin login error:", error);
 res.status(500).send("Admin login failed. Please try again.");
@@ -68,7 +79,13 @@ try {
 const { username, email, password } = req.body;
 const newUser = new RegisteredUser({ username, email, password });
 await newUser.save();
-res.sendStatus(201); // Created
+
+res.status(200).json({
+  msg: "Registration Successful",
+  token:await newUser.generateToken(),
+  userId:newUser._id.toString(),
+});
+ // Created
 } catch (error) {
 console.error("Signup error:", error);
 res.status(500).send("Signup failed. Please try again.");
@@ -76,15 +93,29 @@ res.status(500).send("Signup failed. Please try again.");
 });
 
 // Get all registered users
-router.get("/registered-users", async (req, res) => {
+router.get("/registered-users",authmiddleware ,async (req, res) => {
     try {
-      const users = await RegisteredUser.find({}, { password: 0 }); // Exclude password field
-      res.status(200).json(users);
+      const users = req.user;
+      
+     // const users = await RegisteredUser.find({}, { password: 0 }); // Exclude password field
+      res.status(200).json({users});
     } catch (error) {
       console.error("Error fetching registered users:", error);
       res.status(500).send("Failed to fetch registered users.");
     }
   });
+// Get all registered admins
+router.get("/registered-admins",adminauthmiddleware ,async (req, res) => {
+  try {
+    const admins = req.admin;
+    
+   // const users = await RegisteredUser.find({}, { password: 0 }); // Exclude password field
+    res.status(200).json({admins});
+  } catch (error) {
+    console.error("Error fetching registered users:", error);
+    res.status(500).send("Failed to fetch registered admins.");
+  }
+});
 
   // Update a registered user by ID
 router.put("/registered-users/:id", async (req, res) => {
@@ -101,6 +132,8 @@ router.put("/registered-users/:id", async (req, res) => {
       res.status(500).send("Failed to update user.");
     }
   });
+
+  
   
   // Delete a registered user by ID
   router.delete("/registered-users/:id", async (req, res) => {
