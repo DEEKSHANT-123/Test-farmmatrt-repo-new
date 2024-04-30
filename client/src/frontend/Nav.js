@@ -48,6 +48,11 @@ About
 </NavLink>
 </li>
 
+
+
+
+
+
 <li>
 <NavLink
 className="navbar-link"
@@ -71,11 +76,12 @@ Product
 <NavLink
 className="navbar-link"
 
-to="/farm"
+to="/farmartfarm"
 >
-Farmart Product
+Products
 </NavLink>
 </li>
+
 <li>
 <div className="dropdown">
 <div>

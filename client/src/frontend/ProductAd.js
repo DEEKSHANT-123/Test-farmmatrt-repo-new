@@ -15,6 +15,9 @@ const ProductAd=()=>{
         description:"",
         price:"",
         waranty:"",
+        category:"",
+        quantity:"",
+        rating:"",
         image: null // Initialize image state
 
     })
@@ -25,6 +28,9 @@ const ProductAd=()=>{
         description:"",
         price:"",
         waranty:"",
+        category:"",
+        quantity:"",
+        rating:"",
 
         _id:""
 
@@ -59,6 +65,9 @@ const ProductAd=()=>{
                     description: "",
                     price: "",
                     waranty: "",
+                    category:"",
+                    quantity:"",
+                    rating:"",
                     image: ""
                 });
             }
@@ -142,6 +151,9 @@ const handleUpdate = async (e) => {
     formDataWithImage.append('description', formDataEdit.description);
     formDataWithImage.append('price', formDataEdit.price);
     formDataWithImage.append('waranty', formDataEdit.waranty);
+    formDataWithImage.append('description', formDataEdit.category);
+    formDataWithImage.append('price', formDataEdit.quantity);
+    formDataWithImage.append('waranty', formDataEdit.rating);
     formDataWithImage.append('image', formDataEdit.image);
     
     const data = await axios.put(`/updateproduct/${_id}`, formDataWithImage);
@@ -235,6 +247,9 @@ const handleFileInputChange = (e) => {
                 <th>Product Description</th>
                 <th>Product Price</th>
                 <th>Product Warranty</th>
+                <th>Product Category</th>
+                <th>Product Quantity</th>
+                <th>Product Rating</th>
                 <th>Product Image</th>
                 <th>Action</th>
             </tr>
@@ -251,10 +266,13 @@ const handleFileInputChange = (e) => {
                             <td>{el.description}</td>
                             <td>{el.price}</td>
                             <td>{el.waranty}</td>
+                            <td>{el.category}</td>
+                            <td>{el.quantity}</td>
+                            <td>{el.rating}</td>
                             <td style={{ backgroundColor: "lightgray" }}>
                             <img src={`http://localhost:5000/images/${el.image}`} alt={el.name} 
-                            width="500px"
-                            height="250px" 
+                            width="300px"
+                            height="200px" 
                             style={{ border: "1px solid black" }}                          
                             />
               

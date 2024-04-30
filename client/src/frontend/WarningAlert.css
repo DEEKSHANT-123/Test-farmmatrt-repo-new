@@ -1,0 +1,28 @@
+/* .warning-alert {
+    padding: 20px;
+    margin: 10px 0;
+    border: 1px solid #f5c6cb;
+    background-color: #ec0c1f;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    width:300px;
+  }
+   */
+   .warning-alert {
+    padding: 20px;
+    margin: 10px 0;
+    border: 1px solid #f5c6cb;
+    background-color: tomato;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    width: 300px;
+    font-size: 18px;
+  
+    /* Positioning */
+    position: absolute; /* or fixed if you want it to stay in place on scroll */
+    right: 0;
+    top: 5%; /* Adjust as needed for your header/nav */
+  }
+  
