@@ -54,6 +54,7 @@ const AdminLogin = () => {
       email : email,
       password : password
   }
+  
 const response = await axios.post("http://localhost:5000/api/admin/login", admindetails);
 
       if (response.status === 200) {

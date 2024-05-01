@@ -38,6 +38,7 @@ router.post("/login", async (req, res) => {
 router.post("/admin/login", async (req, res) => {
 try {
 const { email, password } = req.body;
+
 const admin = await Admin.findOne({ email, password });
 console.log(admin);
 
