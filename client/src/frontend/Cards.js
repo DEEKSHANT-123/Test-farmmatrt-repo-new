@@ -2,16 +2,18 @@ import React from 'react';
 import './Cards.css';
 
 const Cards = ({item, handleClick}) => {
-    const {id, title, author, price, img} = item; // Destructure item properties
+    const {name, description, price, img} = item; // Destructure item properties
 
     return (
         <div className="cards">
             <div className="image_box">
-                <img src={img} alt="Image" />
+                {/* <img src={img} alt="Image" /> */}
+                <img src={`http://localhost:5000/images/${item.image}`} alt="Image" />
+
             </div>
             <div className="details">
-                <p>{title}</p>
-                <p>{author}</p>
+                <p>{name}</p>
+                <p>{description}</p>
                 <p>Price - {price}Rs</p>
                 {/* Add onClick event to call handleClick function */}
                 <button onClick={() => handleClick(item)}>Add to Cart</button>

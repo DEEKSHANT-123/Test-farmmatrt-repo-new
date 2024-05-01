@@ -1,0 +1,73 @@
+/* FarmartFarm.css */
+
+/* Styles for product cards */
+/* FarmartFarm.css */
+
+/* Styles for product cards */
+.farmart-farm {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Distribute items with equal space between them */
+    margin-left: 200px;
+    margin-right: 200px;
+  }
+  
+  .product-card {
+    width: 300px;/* Adjust the width to accommodate three products per row */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+    box-sizing: border-box; /* Include padding in the width calculation */
+  }
+  
+  .product-card img {
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+    object-fit: cover; /* Ensure all images have the same size */
+  }
+  
+  .product-details {
+    padding: 15px 0;
+  }
+  
+  .product-details h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .product-details p {
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+  
+  /* Responsive styles */
+  @media screen and (max-width: 1024px) {
+    .product-card {
+      width: calc(45% - 20px); /* Adjust the width for two products per row */
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .product-card {
+      width: calc(100% - 20px); /* Single product per row */
+    }
+  }
+  
+  
+  /* Styles for the button */
+.btn {
+    background-color: #007bff; /* Blue color */
+    color: #fff; /* White text color */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3; /* Darker blue color on hover */
+  }

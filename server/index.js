@@ -118,6 +118,9 @@ const productData= new mongoose.Schema({
     description:String,
     price:String,
     waranty:String,
+    category:String,
+    quantity:String,
+    rating:String,
     image: String
     },{
     timestamps:true,
@@ -147,9 +150,9 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
   app.post("/addproduct", upload.single('image'), async (req, res) => {
     try {
         console.log(req.file); // Log the uploaded file
-      const { name, description, price, waranty } = req.body;
+      const { name, description, price, waranty,category,quantity ,rating} = req.body;
       const image = req.file ? req.file.filename : ''; // Save the filename if an image is uploaded
-      const newProduct = new productModel({ name, description, price, waranty, image });
+      const newProduct = new productModel({ name, description, price, waranty,category,quantity, rating,image });
       const savedProduct = await newProduct.save();
       res.status(201).json({ success: true, message: "Product added successfully", data: savedProduct });
     } catch (error) {
@@ -162,12 +165,16 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.put("/updateproduct/:id", upload.single('image'), async (req, res) => {
     try {
       const { id } = req.params;
-      const { name, description, price, waranty } = req.body;
+      const { name, description, price, waranty ,category,quantity,rating} = req.body;
+      const image = req.file ? req.file.filename : '';
       const updatedProduct = {
         name,
         description,
         price,
         waranty,
+        category,
+        quantity,
+        rating,
         image: req.file ? req.file.filename : '' // Save the filename if an image is uploaded
       };
       const result = await productModel.findByIdAndUpdate(id, updatedProduct, { new: true });
