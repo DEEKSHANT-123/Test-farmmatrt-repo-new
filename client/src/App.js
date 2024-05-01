@@ -86,6 +86,8 @@ setTimeout(() => setWarning(''), 2000); // Hide warning after 2 seconds
     setCart(cart.filter((item) => item.id !== id));
   };
   const totalPrice = cart.reduce((acc, item) => acc + item.amount * item.price, 0);
+  const cartItemCount = cart.reduce((total, product) => total + product.amount, 0);
+
 
   const handleShowButtonClick = () => {
     // Your logic for showing something
@@ -116,11 +118,11 @@ setTimeout(() => setWarning(''), 2000); // Hide warning after 2 seconds
       <Router>
         <GlobalStyle />
 
-        <Header isloggedIn={isloggedIn} check={checkloggin} cartSize={cart.length} />
+        <Header isloggedIn={isloggedIn} check={checkloggin}  cartSize={cartItemCount} />
        {/* Display the WarningAlert if there is a message */}
        <WarningAlert message={warning} />
         
-        <Header   cartSize={cart.length} />
+        {/* <Header   cartSize={cart.length} /> */}
 
         <br />
         <br />
@@ -135,11 +137,11 @@ setTimeout(() => setWarning(''), 2000); // Hide warning after 2 seconds
           <Route path="/signup" element={<Signup />} />
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/staff/login" element={<StaffLogin />} />
-          <Route path="/admindashboard" element={<AdminDashboard isLoggedIn={isloggedIn} />} />
+          {/* <Route path="/admindashboard" element={<AdminDashboard isLoggedIn={isloggedIn} />} /> */}
           <Route path="/registered-users" element={<RegisteredUsersPage />} />
           <Route path="/farmc" element={<React.Fragment><Cart cart={cart} setCart={setCart} handleChange={handleChange} /> </React.Fragment>} />
-          <Route path="/product" element={<Product />} />
-          <Route path="/product/:id" element={<SingleProduct />} />
+          {/* <Route path="/product" element={<Product />} /> */}
+          {/* <Route path="/product/:id" element={<SingleProduct />} /> */}
           <Route path="/user/login" element={<UserLogin />} />
           <Route path="/logout" element={<Logout/>}/>
           <Route path="/adminlogout" element={<AdminLogout/>}/>
@@ -152,7 +154,8 @@ setTimeout(() => setWarning(''), 2000); // Hide warning after 2 seconds
          <Route path="/registered-users" element={<RegisteredUsersPage />} />
           <Route path="/farmc" element={<React.Fragment><Cart cart={cart} setCart={setCart} handleChange={handleChange} /> {warning && <div className='warning'> Item is already added to your cart</div>}</React.Fragment>} />
           <Route path="/user" element={<Privateroute />}>
-             <Route path="farm" element={<FarmartProduct handleClick={handleClick} />} />
+             {/* <Route path="farm" element={<FarmartProduct handleClick={handleClick} />} /> */}
+             <Route path="farmartfarm" element={<FarmartFarm addToCart={addToCart} />} />
              </Route>
           <Route path="/fcard" element={<Cards />} />
         
@@ -161,7 +164,7 @@ setTimeout(() => setWarning(''), 2000); // Hide warning after 2 seconds
           <Route path="*" element={<ErrorPage />} />
           <Route path="/address" element = {<Address total={totalPrice} />} />
         
-           <Route path="/farmartfarm" element={<FarmartFarm addToCart={addToCart} />} />
+           
       <Route path="/cart" element={<Cart cart={cart} handleChange={handleChange} handleRemove={handleRemove} setCart={setCart}/>} />
       
         </Routes>

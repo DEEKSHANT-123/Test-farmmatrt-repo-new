@@ -14,7 +14,7 @@ const Cart = ({ cart, setCart, handleChange ,handleRemove}) => {
                 <div className="cart-item" key={item.id}>
                     <img src={`http://localhost:5000/images/${item.image}`} alt={item.name} className="cart-image" />
                     <div className="item-details">
-                        <h3>{item.title}</h3>
+                        <h3>{item.name}</h3>
                         <p>Price: Rs {item.price}</p>
                         <br></br>
                         <p>Product details: {item.description}</p>
@@ -34,11 +34,12 @@ const Cart = ({ cart, setCart, handleChange ,handleRemove}) => {
                 <span>Total Price of your Cart</span>
                 <span>Rs {calculateTotalPrice()}</span>
             </div>
-            <Link to={{ pathname: price !== 0 ? "/address" : "/farmartfarm", state: { total: price } }}>
-                <button className="checkout-button">Proceed to Checkout</button>
-            </Link>
+            <Link to="/address">
+    <button className="checkout-button">Proceed to Checkout</button>
+</Link>
         </article>
     );
 }
 
 export default Cart;
+

@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-// import { CgMenu, CgCloseR } from "react-icons/cg";
-// import { FaShoppingCart } from "react-icons/fa";
+
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaSearch, FaShoppingCart } from "react-icons/fa";
 import "./Nav.css";
@@ -13,8 +12,6 @@ const Nav = styled.nav``;
 const Navi = ({check,size}) => {
 const {isaloggedIn, user } = useAuth();
 const [showMediaIcons, setShowMediaIcons] = useState(false);
-
-
 
 return (
 <Nav className="main-nav">
@@ -48,11 +45,6 @@ to="/about"
 About
 </NavLink>
 </li>
-
-
-
-
-
 
 <li>
 <NavLink
@@ -95,13 +87,7 @@ to="/admin/login" // Link for admin login
 >
 Admin Login
 </NavLink>
-{/* <NavLink
-className="navbar-link"
-onClick={() => setOpenMenu(false)}
-to="/staff/login" // Link for admin login
->
-Staff Login
-</NavLink> */}
+
 <NavLink
 className="navbar-link"
 
@@ -116,7 +102,7 @@ User Login
 </div>
 </div>
 </li>
-{/* Other navigation links... */}
+
 
 
 
@@ -136,10 +122,6 @@ to="/search"
 </NavLink>
 </li>
 
-{/* <li>
-    
-<NavLink className="navbar-link" to="/search"> <FaSearch /> </NavLink>
-</li> */}
 
 <li>
 
