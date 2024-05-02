@@ -28,7 +28,7 @@ const Cart = ({ cart, setCart, handleChange ,handleRemove}) => {
                     </div>
                 </div>
             )) : (
-                <p>Your cart is empty. <Link to="/farmartfarm">Start shopping!</Link></p>
+                <p>Your cart is empty. <Link to="/user/farmartfarm">Start shopping!</Link></p>
             )}
             <div className='total'>
                 <span>Total Price of your Cart</span>

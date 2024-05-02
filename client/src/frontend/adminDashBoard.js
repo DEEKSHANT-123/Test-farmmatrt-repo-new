@@ -75,6 +75,7 @@ const AdminDashboard = () => {
         </div>
         <div style={cardStyle}>
           <h2 style={{ color: '#1aff66' }}>Sales</h2>
+          <h2>4</h2>
           
         </div>
       </div>

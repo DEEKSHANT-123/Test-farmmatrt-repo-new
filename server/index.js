@@ -8,19 +8,13 @@ require("dotenv").config();
 const path = require('path');
 const app = express();
 const multer = require('multer');
-
-
-
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 
 
-// app.get("/",(req,res)=>{
-//     res.send("Server is Running");
-// })
 
-
+// Payment getway start /////////////////////////////////////////////////////////
 app.post("/order", async (req, res) => {
    try{
     const razorpay = new Razorpay({
@@ -66,11 +60,11 @@ app.post("/validate", async (req, res) => {
     res.json({msg: " Transaction is legit!", orderId: razorpay_order_id,paymentId: razorpay_payment_id});
 })
 
+//  payment getway end/////////////////////////////////////////////////////////////////////////
+
+
+//mongodb connection
 const DB = 'mongodb+srv://farmart:farmart@cluster0.s2799tv.mongodb.net/FARMART?retryWrites=true&w=majority';
-
-
-
-
 mongoose.connect(DB, {
 useNewUrlParser: true,
 // useCreateIndex:true,
@@ -91,15 +85,7 @@ app.use("/api", apiRoutes);
 
 
 
-
-
-
-
-
-
-
-
-// add product start
+// add product start/////////////////////////////////////////////////////////////////////
 // Multer storage configuration
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -197,6 +183,58 @@ app.delete("/deleteproduct/:id", async (req, res) => {
   });
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //add product end
+
+//Checkout details start
+
+//create checkout schema
+const checkoutSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  email: { type: String, required: true },
+  address1: { type: String, required: true },
+  address2: { type: String },
+  city: { type: String, required: true },
+  state: { type: String, required: true },
+  country: { type: String, required: true },
+  pincode: { type: String, required: true },
+  contact: { type: String, required: true },
+  total: { type: Number, required: true }
+}, { timestamps: true });
+
+
+
+app.get("/checkout-details/:id", async (req, res) => {
+  try {
+      const checkoutDetails = await Checkout.findById(req.params.id);
+      if (!checkoutDetails) {
+          return res.status(404).json({ success: false, message: "No checkout details found with the provided ID" });
+      }
+      res.json({ success: true, data: checkoutDetails });
+  } catch (error) {
+      console.error("Error retrieving checkout details:", error);
+      res.status(500).json({ success: false, message: "Error retrieving checkout details", error: error.message });
+  }
+});
+
+// Inside your main server file or a separate route file
+
+app.post("/submit-checkout", async (req, res) => {
+  try {
+      const checkoutData = new Checkout(req.body);
+      await checkoutData.save();
+      res.status(201).json({ success: true, message: "Checkout details saved successfully", data: checkoutData });
+  } catch (error) {
+      console.error("Error saving checkout details:", error);
+      res.status(500).json({ success: false, message: "Error saving checkout details", error: error.message });
+  }
+});
+
+
+
+
+
+
+//checkout details end ///////////////////////////////////////////////////////////
+
 
 
 

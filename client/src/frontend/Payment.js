@@ -35,7 +35,9 @@ const Payment = () => {
         currency,
         name: "FarMart",
         description: "Test Transaction",
-        image: "./images/company_logo.png",
+        // image: "./images/company_logo.png",
+        image: "https://app.gemoo.com/share/image-annotation/640713536919584768?codeId=vzRaaoW0w95Jn&origin=imageurlgenerator",
+        
         order_id: order.id,
         handler: async function (response) {
           const body = { ...response };
