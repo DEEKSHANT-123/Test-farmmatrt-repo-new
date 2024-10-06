@@ -3,7 +3,7 @@ import ProductForm from "./ProductForm";
 import './ProductAd.css';
 import axios from "axios";
 
-axios.defaults.baseURL="http://localhost:5000/"
+axios.defaults.baseURL="http://localhost:8000/"
 
 
 const ProductAd=()=>{
@@ -90,7 +90,7 @@ const ProductAd=()=>{
 
 const getFetchData = async () => {
     try {
-        const response = await axios.get("http://localhost:5000/productdetails");
+        const response = await axios.get("http://localhost:8000/productdetails");
         console.log(response.data); // Log response data to verify
         if (response.data.success) {
             setDataList(response.data.data);

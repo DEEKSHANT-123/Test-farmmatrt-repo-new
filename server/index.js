@@ -120,6 +120,13 @@ app.use('/images', express.static(path.join(__dirname, 'uploads')));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
   //define get method
+
+  app.listen(5000, ()=> {
+    console.log("server is running")
+  })
+
+
+
   app.get("/productdetails", async (req, res) => {
     try {
       const products = await productModel.find({}); // Use productModel to find documents

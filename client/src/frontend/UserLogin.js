@@ -56,7 +56,7 @@ try {
         email : email,
         password : password
     }
-const response = await axios.post("http://localhost:5000/api/login", details);
+const response = await axios.post("http://localhost:8000/api/login", details);
 
 if (response.status === 200) {
 alert("Login successful!");
